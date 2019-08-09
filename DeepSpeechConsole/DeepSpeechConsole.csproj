@@ -57,6 +57,9 @@
     <None Include="macsen\lm.binary">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="macsen\output_graph.pb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="macsen\output_graph.pbmm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

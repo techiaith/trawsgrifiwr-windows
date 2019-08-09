@@ -67,7 +67,7 @@ namespace CSharpExamples
                     Console.WriteLine("Loading model...");
                     stopwatch.Start();
                     sttClient.CreateModel(
-                        model ?? "macsen/output_graph.pbmm",
+                        model ?? "macsen/output_graph.pb",
                         N_CEP, N_CONTEXT,
                         alphabet ?? "macsen/alphabet.txt",
                         BEAM_WIDTH);
