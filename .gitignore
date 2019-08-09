@@ -1,0 +1,7 @@
+DeepSpeechConsole/bin/*
+DeepSpeechConsole/obj/*
+DeepSpeechConsole/macsen/*
+DeepSpeechClient/bin/*
+DeepSpeechClient/obj/*
+packages/*
+nupkg/*

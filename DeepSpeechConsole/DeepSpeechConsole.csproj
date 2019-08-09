@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{312965E5-C4F6-4D95-BA64-79906B8BC7AC}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>DeepSpeechConsole</RootNamespace>
+    <AssemblyName>DeepSpeechConsole</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="NAudio, Version=1.9.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.1.9.0\lib\net35\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="macsen\lm.binary">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="macsen\output_graph.pbmm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="macsen\trie">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DeepSpeechClient\DeepSpeechClient.csproj">
+      <Project>{56DE4091-BBBE-47E4-852D-7268B33B971F}</Project>
+      <Name>DeepSpeechClient</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="arctic_a0024.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\alphabet.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\001fefc0fd8306c73e25f76a6de9e271.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\001fefc0fd8306c73e25f76a6de9e271.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\045a662306c182850ff8f675e79b28e6.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\045a662306c182850ff8f675e79b28e6.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\069ae04449c14b91dc5025b71a77efcf.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\069ae04449c14b91dc5025b71a77efcf.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\08aed46650b87a879f450421c0fab135.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\08aed46650b87a879f450421c0fab135.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\13715db0df563febad401522b7089bc2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\13715db0df563febad401522b7089bc2.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\1714d28551e40c76df23b6da1db1d9b2.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\1714d28551e40c76df23b6da1db1d9b2.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\27cc6a577f80a161889ef051c2b1015b.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\27cc6a577f80a161889ef051c2b1015b.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\2b5cc1da1641b38319d45de46aff1865.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\2b5cc1da1641b38319d45de46aff1865.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\3a1f053936f99ebc3a0ce2a50facc63b.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\3a1f053936f99ebc3a0ce2a50facc63b.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\416703dc963e3c9f193fd3a99cc6929e.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\416703dc963e3c9f193fd3a99cc6929e.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\521caaceb8f6eccd21e02b0d29a60a5a.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\521caaceb8f6eccd21e02b0d29a60a5a.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\5831440515db96a961e93c04a8f69121.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\5831440515db96a961e93c04a8f69121.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\5f25e34af20b21c08815c46f7ecf1b9a.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\5f25e34af20b21c08815c46f7ecf1b9a.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\6578a4b9db4232a078f8ea89f50abfcb.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\6578a4b9db4232a078f8ea89f50abfcb.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\6a07a7622c3e085dc051601132d42b08.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\6a07a7622c3e085dc051601132d42b08.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\6af2df0b909a81e5e997acd79c6b8931.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\6af2df0b909a81e5e997acd79c6b8931.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\6ea73331a4a4967024399d4cbe99623a.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\6ea73331a4a4967024399d4cbe99623a.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\7eedf8a72689edc9d0daef9f9148a9df.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\7eedf8a72689edc9d0daef9f9148a9df.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\80a211c34691b28afaa6c2c6708c2ac3.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\80a211c34691b28afaa6c2c6708c2ac3.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\90f2962ae545521974ce3653d3c14f5c.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\90f2962ae545521974ce3653d3c14f5c.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\9f2d315631e3d4308b3bac9a49205b8a.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\9f2d315631e3d4308b3bac9a49205b8a.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\a3b0f986b9ea536228c74d6493d316a9.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\a3b0f986b9ea536228c74d6493d316a9.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\a3d7bbba13058bc7f295be41dc185579.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\a3d7bbba13058bc7f295be41dc185579.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\a9ee10c95d2e8610936fa9eaf2a82fd0.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\a9ee10c95d2e8610936fa9eaf2a82fd0.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\b8e25843d2697027c792f6d6f0102076.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\b8e25843d2697027c792f6d6f0102076.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\c3877a2c2a2c378b18d8577b4ede9251.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\c3877a2c2a2c378b18d8577b4ede9251.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\c408c7b443d11c238c218d93b1ede031.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\c408c7b443d11c238c218d93b1ede031.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\c641fce804e718751029f1e91748f9e7.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\c641fce804e718751029f1e91748f9e7.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\d1de5b511cce98c3f85060bc0f5e5170.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\d1de5b511cce98c3f85060bc0f5e5170.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\d56b306c0dff122e684e408c923e1d3b.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="macsen\audio\e7480a00-3260-11e9-ab23-638cc68e1d17\d56b306c0dff122e684e408c923e1d3b.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
