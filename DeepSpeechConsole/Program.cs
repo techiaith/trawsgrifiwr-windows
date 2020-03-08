@@ -67,26 +67,22 @@ namespace CSharpExamples
                     Console.WriteLine("Loading model...");
                     stopwatch.Start();
                     sttClient.CreateModel(
-                        model ?? "macsen/output_graph.pb",
+                        model ?? "models/arddweud/output_graph.pb",
                         N_CEP, N_CONTEXT,
-                        alphabet ?? "macsen/alphabet.txt",
+                        alphabet ?? "models/arddweud/alphabet.txt",
                         BEAM_WIDTH);
                     stopwatch.Stop();
 
-                    Console.WriteLine($"Model loaded - {stopwatch.Elapsed.Milliseconds} ms");
-                    stopwatch.Reset();
-                    if (lm != null)
-                    {
-                        Console.WriteLine("Loading LM...");
-                        sttClient.EnableDecoderWithLM(
-                            alphabet ?? "macsen/alphabet.txt",
-                            lm ?? "macsen/lm.binary",
-                            trie ?? "macsen/trie",
-                            LM_ALPHA, LM_BETA);
+                    Console.WriteLine($"\n\nModel loaded - {stopwatch.Elapsed.Milliseconds} ms");
 
-                    }
-
-                    string audioFile = audio ?? "macsen/audio/e7480a00-3260-11e9-ab23-638cc68e1d17/d56b306c0dff122e684e408c923e1d3b.wav";
+                    Console.WriteLine("Loading LM...");
+                    sttClient.EnableDecoderWithLM(
+                        alphabet ?? "models/arddweud/alphabet.txt",
+                        lm ?? "models/arddweud/lm.binary",
+                        trie ?? "models/arddweud/trie",
+                        LM_ALPHA, LM_BETA);
+                                    
+                    string audioFile = audio ?? "speech.wav";
                     var waveBuffer = new WaveBuffer(File.ReadAllBytes(audioFile));
                     using (var waveInfo = new WaveFileReader(audioFile))
                     {

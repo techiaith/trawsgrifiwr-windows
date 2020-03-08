@@ -6,3 +6,4 @@ DeepSpeechClient/bin/*
 DeepSpeechClient/obj/*
 packages/*
 nupkg/*
+models/
