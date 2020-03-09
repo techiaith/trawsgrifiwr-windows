@@ -8,10 +8,15 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
+
 namespace CSharpExamples
 {
     class Program
     {
+
+        
+        private static WaveFileWriter waveFile = null;
+
         /// <summary>
         /// Get the value of an argurment.
         /// </summary>
@@ -60,10 +65,17 @@ namespace CSharpExamples
 
             Stopwatch stopwatch = new Stopwatch();
 
+            WaveInEvent waveSource = new WaveInEvent();
+            waveSource.WaveFormat = new WaveFormat(16000, 1);
+            waveSource.DataAvailable += new EventHandler<WaveInEventArgs>(waveSource_DataAvailable);
+            //waveSource.RecordingStopped += new EventHandler<StoppedEventArgs>(waveSource_RecordingStopped);
+
+            
             using (IDeepSpeech sttClient = new DeepSpeech())
             {
                 try
                 {
+
                     Console.WriteLine("Loading model...");
                     stopwatch.Start();
                     sttClient.CreateModel(
@@ -81,39 +93,63 @@ namespace CSharpExamples
                         lm ?? "models/arddweud/lm.binary",
                         trie ?? "models/arddweud/trie",
                         LM_ALPHA, LM_BETA);
-                                    
-                    string audioFile = audio ?? "speech.wav";
-                    var waveBuffer = new WaveBuffer(File.ReadAllBytes(audioFile));
-                    using (var waveInfo = new WaveFileReader(audioFile))
+
+                    while (true)
                     {
-                        Console.WriteLine("Running inference....");
-
-                        stopwatch.Start();
-
-                        string speechResult;
-                        if (extended)
-                        {
-                            Metadata metaResult = sttClient.SpeechToTextWithMetadata(waveBuffer.ShortBuffer, Convert.ToUInt32(waveBuffer.MaxSize / 2), 16000);
-                            speechResult = MetadataToString(metaResult);
-                        }
-                        else
-                        {
-                            speechResult = sttClient.SpeechToText(waveBuffer.ShortBuffer, Convert.ToUInt32(waveBuffer.MaxSize / 2), 16000);
-                        }
-
-                        stopwatch.Stop();
-
-                        Console.WriteLine($"Audio duration: {waveInfo.TotalTime.ToString()}");
-                        Console.WriteLine($"Inference took: {stopwatch.Elapsed.ToString()}");
-                        Console.WriteLine((extended ? $"Extended result: " : "Recognized text: ") + speechResult);
+                        Console.Out.WriteLine("Pwyswch 'Return' i ddechrau recordio...");
                         Console.In.ReadLine();
+
+                        Console.Out.WriteLine("Yn recordio... Pwyswch 'Return' i stopio'r recordio");
+                        waveFile = new WaveFileWriter("tmp.wav", waveSource.WaveFormat);
+                        waveSource.StartRecording();
+                        Console.In.ReadLine();
+                        waveSource.StopRecording();
+                        waveFile.Dispose();
+
+                        //
+                        string audioFile = audio ?? "tmp.wav"; //"speech.wav";
+                        var waveBuffer = new WaveBuffer(File.ReadAllBytes(audioFile));
+                        using (var waveInfo = new WaveFileReader(audioFile))
+                        {
+                            Console.WriteLine("Running inference....");
+
+                            stopwatch.Start();
+
+                            string speechResult;
+                            if (extended)
+                            {
+                                Metadata metaResult = sttClient.SpeechToTextWithMetadata(waveBuffer.ShortBuffer, Convert.ToUInt32(waveBuffer.MaxSize / 2), 16000);
+                                speechResult = MetadataToString(metaResult);
+                            }
+                            else
+                            {
+                                speechResult = sttClient.SpeechToText(waveBuffer.ShortBuffer, Convert.ToUInt32(waveBuffer.MaxSize / 2), 16000);
+                            }
+
+                            stopwatch.Stop();
+
+                            Console.WriteLine($"Audio duration: {waveInfo.TotalTime.ToString()}");
+                            Console.WriteLine($"Inference took: {stopwatch.Elapsed.ToString()}");
+                            Console.WriteLine((extended ? $"Extended result: " : "Recognized text: ") + speechResult);
+                            Console.WriteLine("\n\n");
+                        }
+                        waveBuffer.Clear();
                     }
-                    waveBuffer.Clear();
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
                 }
+            }        
+        }
+
+
+        private static void waveSource_DataAvailable(object sender, WaveInEventArgs e)
+        {
+            if (waveFile != null)
+            {
+                waveFile.Write(e.Buffer, 0, e.BytesRecorded);
+                waveFile.Flush();
             }
         }
     }
