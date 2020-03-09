@@ -1,12 +1,14 @@
-﻿using DeepSpeechClient;
-using DeepSpeechClient.Interfaces;
-using DeepSpeechClient.Models;
-using NAudio.Wave;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+
+using NAudio.Wave;
+
+using DeepSpeechClient;
+using DeepSpeechClient.Interfaces;
+using DeepSpeechClient.Models;
 
 
 namespace CSharpExamples
@@ -14,7 +16,12 @@ namespace CSharpExamples
     class Program
     {
 
-        
+        const uint N_CEP = 26;
+        const uint N_CONTEXT = 9;
+        const uint BEAM_WIDTH = 500;
+        const float LM_ALPHA = 0.75f;
+        const float LM_BETA = 1.85f;
+
         private static WaveFileWriter waveFile = null;
 
         /// <summary>
@@ -37,6 +44,7 @@ namespace CSharpExamples
             return retval;
         }
 
+        //
         static void Main(string[] args)
         {
             string model = null;
@@ -44,107 +52,96 @@ namespace CSharpExamples
             string lm = null;
             string trie = null;
             string audio = null;
-            bool extended = false;
-            if (args.Length > 0)
-            {
-                model = GetArgument(args, "--model");
-                alphabet = GetArgument(args, "--alphabet");
-                lm = GetArgument(args, "--lm");
-                trie = GetArgument(args, "--trie");
+            bool extended = true;
+            //if (args.Length > 0)
+            //{
+                model = GetArgument(args, "--model") ?? "models/arddweud/output_graph.pb";
+                alphabet = GetArgument(args, "--alphabet") ?? "models/arddweud/alphabet.txt";
+                lm = GetArgument(args, "--lm") ?? "models/arddweud/lm.binary";
+                trie = GetArgument(args, "--trie") ?? "models/arddweud/trie";
                 audio = GetArgument(args, "--audio");
                 extended = !string.IsNullOrWhiteSpace(GetArgument(args, "--extended"));
-            }
+            //}
+             
+            //
+            IDeepSpeech sttClient = new DeepSpeech();
 
-            // C: \Users\cbsc04\Documents\Visual Studio 2017\Projects\macsen
+            //
+            try
+            {                    
+                sttClient.CreateModel(model, N_CEP, N_CONTEXT, alphabet, BEAM_WIDTH);               
+                sttClient.EnableDecoderWithLM(alphabet, lm, trie, LM_ALPHA, LM_BETA);
 
-            const uint N_CEP = 26;
-            const uint N_CONTEXT = 9;
-            const uint BEAM_WIDTH = 500;
-            const float LM_ALPHA = 0.75f;
-            const float LM_BETA = 1.85f;
-
-            Stopwatch stopwatch = new Stopwatch();
-
-            WaveInEvent waveSource = new WaveInEvent();
-            waveSource.WaveFormat = new WaveFormat(16000, 1);
-            waveSource.DataAvailable += new EventHandler<WaveInEventArgs>(waveSource_DataAvailable);
-            //waveSource.RecordingStopped += new EventHandler<StoppedEventArgs>(waveSource_RecordingStopped);
-
-            String tmpWavFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "deepspeech.tmp.wav");
-            
-            using (IDeepSpeech sttClient = new DeepSpeech())
-            {
-                try
+                if (!String.IsNullOrEmpty(audio))
                 {
+                    perform_stt(ref sttClient, audio, extended);
+                }
+                else
+                {
+                    WaveInEvent waveSource = new WaveInEvent();
+                    waveSource.WaveFormat = new WaveFormat(16000, 1);
+                    waveSource.DataAvailable += new EventHandler<WaveInEventArgs>(waveSource_DataAvailable);
 
-                    Console.WriteLine("Loading model...");
-                    stopwatch.Start();
-                    sttClient.CreateModel(
-                        model ?? "models/arddweud/output_graph.pb",
-                        N_CEP, N_CONTEXT,
-                        alphabet ?? "models/arddweud/alphabet.txt",
-                        BEAM_WIDTH);
-                    stopwatch.Stop();
+                    String tmpWavFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "deepspeech.tmp.wav");
 
-                    Console.WriteLine($"\n\nModel loaded - {stopwatch.Elapsed.Milliseconds} ms");
-
-                    Console.WriteLine("Loading LM...");
-                    sttClient.EnableDecoderWithLM(
-                        alphabet ?? "models/arddweud/alphabet.txt",
-                        lm ?? "models/arddweud/lm.binary",
-                        trie ?? "models/arddweud/trie",
-                        LM_ALPHA, LM_BETA);
-
+                    Console.Out.WriteLine("Adnabod lleferydd o'r microffon");
                     while (true)
                     {
-                        Console.Out.WriteLine("Pwyswch 'Return' i ddechrau recordio...");
+                        Console.Out.WriteLine(Environment.NewLine);
+                        Console.Out.WriteLine("Pwyswch 'Return' i ddechrau recordio...");                        
                         Console.In.ReadLine();
 
-                        Console.Out.WriteLine("Yn recordio... Pwyswch 'Return' i stopio'r recordio");
+                        Console.Out.WriteLine("Yn recordio... pwyswch 'Return' i stopio'r recordio.");
                         waveFile = new WaveFileWriter(tmpWavFilePath, waveSource.WaveFormat);
                         waveSource.StartRecording();
                         Console.In.ReadLine();
                         waveSource.StopRecording();
                         waveFile.Dispose();
 
-                        //
-                        string audioFile = tmpWavFilePath; //audio ?? "tmp.wav"; //"speech.wav";
-                        var waveBuffer = new WaveBuffer(File.ReadAllBytes(audioFile));
-                        using (var waveInfo = new WaveFileReader(audioFile))
-                        {
-                            Console.WriteLine("Running inference....");
-
-                            stopwatch.Start();
-
-                            string speechResult;
-                            if (extended)
-                            {
-                                Metadata metaResult = sttClient.SpeechToTextWithMetadata(waveBuffer.ShortBuffer, Convert.ToUInt32(waveBuffer.MaxSize / 2), 16000);
-                                speechResult = MetadataToString(metaResult);
-                            }
-                            else
-                            {
-                                speechResult = sttClient.SpeechToText(waveBuffer.ShortBuffer, Convert.ToUInt32(waveBuffer.MaxSize / 2), 16000);
-                            }
-
-                            stopwatch.Stop();
-
-                            Console.WriteLine($"Audio duration: {waveInfo.TotalTime.ToString()}");
-                            Console.WriteLine($"Inference took: {stopwatch.Elapsed.ToString()}");
-                            Console.WriteLine((extended ? $"Extended result: " : "Recognized text: ") + speechResult);
-                            Console.WriteLine("\n\n");
-                        }
-                        waveBuffer.Clear();
+                        perform_stt(ref sttClient, tmpWavFilePath, extended);
                     }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(ex.Message);
-                }
-            }        
+                }                                           
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }                   
         }
 
 
+
+        private static void perform_stt(ref IDeepSpeech sttClient, String audioFilePath, bool extended)
+        {
+            Stopwatch stopwatch = new Stopwatch();
+
+            var waveBuffer = new WaveBuffer(File.ReadAllBytes(audioFilePath));
+            using (var waveInfo = new WaveFileReader(audioFilePath))
+            {
+                Console.WriteLine("Running inference....");
+
+                stopwatch.Start();
+
+                string speechResult;
+                if (extended)
+                {
+                    Metadata metaResult = sttClient.SpeechToTextWithMetadata(waveBuffer.ShortBuffer, Convert.ToUInt32(waveBuffer.MaxSize / 2), 16000);
+                    speechResult = MetadataToString(metaResult);
+                }
+                else
+                {
+                    speechResult = sttClient.SpeechToText(waveBuffer.ShortBuffer, Convert.ToUInt32(waveBuffer.MaxSize / 2), 16000);
+                }
+
+                stopwatch.Stop();
+
+                Console.WriteLine($"Audio duration: {waveInfo.TotalTime.ToString()}");
+                Console.WriteLine($"Inference took: {stopwatch.Elapsed.ToString()}");
+                Console.WriteLine((extended ? $"Extended result: " : "Recognized text: ") + speechResult);
+                Console.WriteLine("\n\n");
+            }
+            waveBuffer.Clear();
+        }
+        
         private static void waveSource_DataAvailable(object sender, WaveInEventArgs e)
         {
             if (waveFile != null)
@@ -153,5 +150,6 @@ namespace CSharpExamples
                 waveFile.Flush();
             }
         }
+
     }
 }
