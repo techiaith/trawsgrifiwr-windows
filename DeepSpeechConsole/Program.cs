@@ -70,6 +70,7 @@ namespace CSharpExamples
             waveSource.DataAvailable += new EventHandler<WaveInEventArgs>(waveSource_DataAvailable);
             //waveSource.RecordingStopped += new EventHandler<StoppedEventArgs>(waveSource_RecordingStopped);
 
+            String tmpWavFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "deepspeech.tmp.wav");
             
             using (IDeepSpeech sttClient = new DeepSpeech())
             {
@@ -100,14 +101,14 @@ namespace CSharpExamples
                         Console.In.ReadLine();
 
                         Console.Out.WriteLine("Yn recordio... Pwyswch 'Return' i stopio'r recordio");
-                        waveFile = new WaveFileWriter("tmp.wav", waveSource.WaveFormat);
+                        waveFile = new WaveFileWriter(tmpWavFilePath, waveSource.WaveFormat);
                         waveSource.StartRecording();
                         Console.In.ReadLine();
                         waveSource.StopRecording();
                         waveFile.Dispose();
 
                         //
-                        string audioFile = audio ?? "tmp.wav"; //"speech.wav";
+                        string audioFile = tmpWavFilePath; //audio ?? "tmp.wav"; //"speech.wav";
                         var waveBuffer = new WaveBuffer(File.ReadAllBytes(audioFile));
                         using (var waveInfo = new WaveFileReader(audioFile))
                         {

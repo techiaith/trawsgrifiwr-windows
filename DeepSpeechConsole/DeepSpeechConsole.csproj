@@ -36,6 +36,9 @@
     <Prefer32Bit>true</Prefer32Bit>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Double-J-Design-Ravenna-3d-Comments.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="DeepSpeechClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64">
       <HintPath>..\packages\DeepSpeech.0.5.1\lib\net46\DeepSpeechClient.dll</HintPath>
@@ -72,6 +75,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Double-J-Design-Ravenna-3d-Comments.ico" />
     <Content Include="models\arddweud\alphabet.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
