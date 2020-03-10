@@ -6,18 +6,46 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepSpeechConsole", "DeepSp
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "deepspeech-windows-setup", "deepspeech-windows-setup\deepspeech-windows-setup.vdproj", "{B352C283-E834-44FC-9121-D37121F5DA49}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepSpeechTranscriberApp", "DeepSpeechTranscriberApp\DeepSpeechTranscriberApp.csproj", "{259969EE-E91E-4E21-9F9A-319543BBCC12}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepSpeechLib", "DeepSpeechLib\DeepSpeechLib.csproj", "{6C065998-6CD2-4816-816E-95A64B0E58CA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
 		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{312965E5-C4F6-4D95-BA64-79906B8BC7AC}.Debug|Any CPU.ActiveCfg = Debug|x64
 		{312965E5-C4F6-4D95-BA64-79906B8BC7AC}.Debug|x64.ActiveCfg = Debug|x64
 		{312965E5-C4F6-4D95-BA64-79906B8BC7AC}.Debug|x64.Build.0 = Debug|x64
+		{312965E5-C4F6-4D95-BA64-79906B8BC7AC}.Release|Any CPU.ActiveCfg = Release|x64
 		{312965E5-C4F6-4D95-BA64-79906B8BC7AC}.Release|x64.ActiveCfg = Release|x64
 		{312965E5-C4F6-4D95-BA64-79906B8BC7AC}.Release|x64.Build.0 = Release|x64
+		{B352C283-E834-44FC-9121-D37121F5DA49}.Debug|Any CPU.ActiveCfg = Debug
+		{B352C283-E834-44FC-9121-D37121F5DA49}.Debug|Any CPU.Build.0 = Debug
 		{B352C283-E834-44FC-9121-D37121F5DA49}.Debug|x64.ActiveCfg = Debug
+		{B352C283-E834-44FC-9121-D37121F5DA49}.Release|Any CPU.ActiveCfg = Release
+		{B352C283-E834-44FC-9121-D37121F5DA49}.Release|Any CPU.Build.0 = Release
 		{B352C283-E834-44FC-9121-D37121F5DA49}.Release|x64.ActiveCfg = Release
+		{259969EE-E91E-4E21-9F9A-319543BBCC12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{259969EE-E91E-4E21-9F9A-319543BBCC12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{259969EE-E91E-4E21-9F9A-319543BBCC12}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{259969EE-E91E-4E21-9F9A-319543BBCC12}.Debug|x64.Build.0 = Debug|Any CPU
+		{259969EE-E91E-4E21-9F9A-319543BBCC12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{259969EE-E91E-4E21-9F9A-319543BBCC12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{259969EE-E91E-4E21-9F9A-319543BBCC12}.Release|x64.ActiveCfg = Release|Any CPU
+		{259969EE-E91E-4E21-9F9A-319543BBCC12}.Release|x64.Build.0 = Release|Any CPU
+		{6C065998-6CD2-4816-816E-95A64B0E58CA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C065998-6CD2-4816-816E-95A64B0E58CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C065998-6CD2-4816-816E-95A64B0E58CA}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{6C065998-6CD2-4816-816E-95A64B0E58CA}.Debug|x64.Build.0 = Debug|Any CPU
+		{6C065998-6CD2-4816-816E-95A64B0E58CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C065998-6CD2-4816-816E-95A64B0E58CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C065998-6CD2-4816-816E-95A64B0E58CA}.Release|x64.ActiveCfg = Release|Any CPU
+		{6C065998-6CD2-4816-816E-95A64B0E58CA}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
