@@ -81,7 +81,11 @@ namespace DeepSpeechForm
             pictureBoxSpinner.Visible = false;
         }
 
-
+        private void buttonAbout_Click(object sender, EventArgs e)
+        {
+            DeepSpeechTranscriptionApp.About aboutDialog = new DeepSpeechTranscriptionApp.About();
+            aboutDialog.ShowDialog();
+        }
     }
 
 }
