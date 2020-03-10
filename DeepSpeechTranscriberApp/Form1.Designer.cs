@@ -44,19 +44,23 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxTranscriptions.Font = new System.Drawing.Font("Calibri", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTranscriptions.Location = new System.Drawing.Point(12, 12);
+            this.textBoxTranscriptions.Location = new System.Drawing.Point(16, 15);
+            this.textBoxTranscriptions.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.textBoxTranscriptions.Multiline = true;
             this.textBoxTranscriptions.Name = "textBoxTranscriptions";
-            this.textBoxTranscriptions.Size = new System.Drawing.Size(760, 187);
+            this.textBoxTranscriptions.Size = new System.Drawing.Size(1012, 229);
             this.textBoxTranscriptions.TabIndex = 0;
+            this.textBoxTranscriptions.TabStop = false;
+
             // 
             // buttonRecord
             // 
             this.buttonRecord.BackColor = System.Drawing.Color.Red;
             this.buttonRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRecord.Location = new System.Drawing.Point(597, 205);
+            this.buttonRecord.Location = new System.Drawing.Point(796, 252);
+            this.buttonRecord.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonRecord.Name = "buttonRecord";
-            this.buttonRecord.Size = new System.Drawing.Size(86, 44);
+            this.buttonRecord.Size = new System.Drawing.Size(115, 54);
             this.buttonRecord.TabIndex = 1;
             this.buttonRecord.Text = "Recordio";
             this.buttonRecord.UseVisualStyleBackColor = false;
@@ -66,9 +70,10 @@
             // 
             this.buttonStopRecord.BackColor = System.Drawing.Color.Lavender;
             this.buttonStopRecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonStopRecord.Location = new System.Drawing.Point(689, 205);
+            this.buttonStopRecord.Location = new System.Drawing.Point(919, 252);
+            this.buttonStopRecord.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonStopRecord.Name = "buttonStopRecord";
-            this.buttonStopRecord.Size = new System.Drawing.Size(83, 44);
+            this.buttonStopRecord.Size = new System.Drawing.Size(111, 54);
             this.buttonStopRecord.TabIndex = 2;
             this.buttonStopRecord.Text = "Stop";
             this.buttonStopRecord.UseVisualStyleBackColor = false;
@@ -78,9 +83,10 @@
             // 
             this.buttonCopyToClipboard.BackColor = System.Drawing.Color.Lime;
             this.buttonCopyToClipboard.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCopyToClipboard.Location = new System.Drawing.Point(12, 205);
+            this.buttonCopyToClipboard.Location = new System.Drawing.Point(16, 252);
+            this.buttonCopyToClipboard.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.buttonCopyToClipboard.Name = "buttonCopyToClipboard";
-            this.buttonCopyToClipboard.Size = new System.Drawing.Size(83, 44);
+            this.buttonCopyToClipboard.Size = new System.Drawing.Size(111, 54);
             this.buttonCopyToClipboard.TabIndex = 3;
             this.buttonCopyToClipboard.Text = "Copïo";
             this.buttonCopyToClipboard.UseVisualStyleBackColor = false;
@@ -94,9 +100,10 @@
             this.pictureBoxSpinner.BackColor = System.Drawing.Color.White;
             this.pictureBoxSpinner.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBoxSpinner.Image = global::DeepSpeechTranscriptionApp.Properties.Resources.loading_bar_animated_gif_transparent_background_6;
-            this.pictureBoxSpinner.Location = new System.Drawing.Point(272, 22);
+            this.pictureBoxSpinner.Location = new System.Drawing.Point(363, 27);
+            this.pictureBoxSpinner.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBoxSpinner.Name = "pictureBoxSpinner";
-            this.pictureBoxSpinner.Size = new System.Drawing.Size(247, 165);
+            this.pictureBoxSpinner.Size = new System.Drawing.Size(329, 203);
             this.pictureBoxSpinner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxSpinner.TabIndex = 5;
             this.pictureBoxSpinner.TabStop = false;
@@ -105,24 +112,26 @@
             // 
             this.labelRecordingInProgress.AutoSize = true;
             this.labelRecordingInProgress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRecordingInProgress.Location = new System.Drawing.Point(228, 219);
+            this.labelRecordingInProgress.Location = new System.Drawing.Point(304, 270);
+            this.labelRecordingInProgress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelRecordingInProgress.Name = "labelRecordingInProgress";
-            this.labelRecordingInProgress.Size = new System.Drawing.Size(343, 17);
+            this.labelRecordingInProgress.Size = new System.Drawing.Size(411, 20);
             this.labelRecordingInProgress.TabIndex = 6;
             this.labelRecordingInProgress.Text = "Yn recordio. Cliciwch ar \'Stop\' wedi i chi orffen siarad.";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 261);
+            this.ClientSize = new System.Drawing.Size(1045, 321);
             this.Controls.Add(this.labelRecordingInProgress);
             this.Controls.Add(this.pictureBoxSpinner);
             this.Controls.Add(this.buttonCopyToClipboard);
             this.Controls.Add(this.buttonStopRecord);
             this.Controls.Add(this.buttonRecord);
             this.Controls.Add(this.textBoxTranscriptions);
-            this.MinimumSize = new System.Drawing.Size(800, 300);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.MinimumSize = new System.Drawing.Size(1061, 358);
             this.Name = "Form1";
             this.Text = "Trawsgifiwr";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSpinner)).EndInit();

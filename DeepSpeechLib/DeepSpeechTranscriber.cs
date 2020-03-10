@@ -84,7 +84,7 @@ namespace DeepSpeechLib
             {
                 Metadata metaResult = _sttClient.SpeechToTextWithMetadata(waveBuffer.ShortBuffer, Convert.ToUInt32(waveBuffer.MaxSize / 2), 16000);
                 result = new Tuple<string, double?, int?, string>(
-                    string.Join("", metaResult?.Items?.Select(x => x.Character)),
+                    Recaser.Recase(string.Join("", metaResult?.Items?.Select(x => x.Character))),
                     metaResult?.Probability,
                     metaResult?.Items.Length,
                     string.Join(Environment.NewLine, metaResult?.Items?.Select(x => $"Timestep : {x.Timestep} TimeOffset: {x.StartTime} Char: {x.Character}")));
