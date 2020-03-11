@@ -4,7 +4,10 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,6 +24,10 @@ namespace DeepSpeechTranscriberApp
         {
             InitializeComponent();
 
+            AppUpdate appUpdate = new AppUpdate();
+            if (appUpdate.IsAvailableUpdate())
+                appUpdate.ShowDialog();
+
             buttonStopRecord.Enabled = false;           
             pictureBoxSpinner.Visible = false;
             labelRecordingInProgress.Visible = false;
@@ -31,6 +38,7 @@ namespace DeepSpeechTranscriberApp
 
         }
 
+      
 
         private void buttonRecord_Click(object sender, EventArgs e)
         {
@@ -103,7 +111,7 @@ namespace DeepSpeechTranscriberApp
             ProcessStartInfo sInfo = new ProcessStartInfo("https://www.bangor.ac.uk/");
             Process.Start(sInfo);
         }
-
+     
     }
 
 }

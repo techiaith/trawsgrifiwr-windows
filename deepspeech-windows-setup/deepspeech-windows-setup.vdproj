@@ -82,13 +82,13 @@
         "Entry"
         {
         "MsmKey" = "8:_A492FD88263F791F59F07D4C7792C05E"
-        "OwnerKey" = "8:_27BAABD2D6AD48B597F71E041396BB6B"
+        "OwnerKey" = "8:_6FDAE69387404F929C249A4AB690172B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_A492FD88263F791F59F07D4C7792C05E"
-        "OwnerKey" = "8:_6FDAE69387404F929C249A4AB690172B"
+        "OwnerKey" = "8:_27BAABD2D6AD48B597F71E041396BB6B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -154,37 +154,7 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_3FF7AFB7FDC081BE61F71A2ECAE221EC"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_DE574E22FB7E50ECB8DCC18DF7C2CD86"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_BFCCC6199F2CD0AD28F972548ABDE26F"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_27BAABD2D6AD48B597F71E041396BB6B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_B3A43FF787774A8F0942439F10D6029D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_6FDAE69387404F929C249A4AB690172B"
+        "OwnerKey" = "8:_A492FD88263F791F59F07D4C7792C05E"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -196,7 +166,37 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_A492FD88263F791F59F07D4C7792C05E"
+        "OwnerKey" = "8:_6FDAE69387404F929C249A4AB690172B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_B3A43FF787774A8F0942439F10D6029D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_27BAABD2D6AD48B597F71E041396BB6B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_BFCCC6199F2CD0AD28F972548ABDE26F"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_DE574E22FB7E50ECB8DCC18DF7C2CD86"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_3FF7AFB7FDC081BE61F71A2ECAE221EC"
         "MsmSig" = "8:_UNDEFINED"
         }
     }
@@ -301,11 +301,6 @@
             "AssemblyAsmDisplayName" = "8:NAudio, Version=1.10.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_167C5C0F0432ACAA514F93814EB293DF"
-                    {
-                    "Name" = "8:NAudio.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:NAudio.dll"
             "TargetName" = "8:"
@@ -372,11 +367,6 @@
             "AssemblyAsmDisplayName" = "8:NAudio, Version=1.10.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_3FF7AFB7FDC081BE61F71A2ECAE221EC"
-                    {
-                    "Name" = "8:NAudio.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:NAudio.dll"
             "TargetName" = "8:"
@@ -423,11 +413,6 @@
             "AssemblyAsmDisplayName" = "8:System.Net.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a"
                 "ScatterAssemblies"
                 {
-                    "_A492FD88263F791F59F07D4C7792C05E"
-                    {
-                    "Name" = "8:System.Net.Http.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:System.Net.Http.dll"
             "TargetName" = "8:"
@@ -454,11 +439,6 @@
             "AssemblyAsmDisplayName" = "8:DeepSpeechClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64"
                 "ScatterAssemblies"
                 {
-                    "_B3A43FF787774A8F0942439F10D6029D"
-                    {
-                    "Name" = "8:DeepSpeechClient.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:DeepSpeechClient.dll"
             "TargetName" = "8:"
@@ -485,11 +465,6 @@
             "AssemblyAsmDisplayName" = "8:DeepSpeechClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64"
                 "ScatterAssemblies"
                 {
-                    "_BFCCC6199F2CD0AD28F972548ABDE26F"
-                    {
-                    "Name" = "8:DeepSpeechClient.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:DeepSpeechClient.dll"
             "TargetName" = "8:"
@@ -576,11 +551,6 @@
             "AssemblyAsmDisplayName" = "8:DeepSpeechLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64"
                 "ScatterAssemblies"
                 {
-                    "_DE574E22FB7E50ECB8DCC18DF7C2CD86"
-                    {
-                    "Name" = "8:DeepSpeechLib.dll"
-                    "Attributes" = "3:512"
-                    }
                 }
             "SourcePath" = "8:DeepSpeechLib.dll"
             "TargetName" = "8:"
@@ -690,9 +660,9 @@
         "Manufacturer" = "8:Prifysgol Bangor University"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:deepspeech-windows-setup"
+        "Title" = "8:Rhaglen Gosod Trawsgrifiwr"
         "Subject" = "8:"
-        "ARPCONTACT" = "8:Prifysgol Bangor University"
+        "ARPCONTACT" = "8:Uned Technolegau Iaith"
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
@@ -1256,7 +1226,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_6FDAE69387404F929C249A4AB690172B"
             {
-            "SourcePath" = "8:..\\DeepSpeechForm\\obj\\Release\\DeepSpeechTranscriptionApp.exe"
+            "SourcePath" = "8:..\\DeepSpeechTranscriberApp\\obj\\Release\\DeepSpeechTranscriptionApp.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E673ABA61F434025A4DB82E876CBDB8E"
