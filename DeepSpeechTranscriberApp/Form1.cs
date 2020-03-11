@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 using DeepSpeechLib;
 
-namespace DeepSpeechForm
+namespace DeepSpeechTranscriberApp
 {
     public partial class Form1 : Form
     {
@@ -86,6 +86,24 @@ namespace DeepSpeechForm
             DeepSpeechTranscriptionApp.About aboutDialog = new DeepSpeechTranscriptionApp.About();
             aboutDialog.ShowDialog();
         }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void buttonGitHub_Click(object sender, EventArgs e)
+        {
+            ProcessStartInfo sInfo = new ProcessStartInfo("http://voice.mozilla.org/cy");
+            Process.Start(sInfo);
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
+            ProcessStartInfo sInfo = new ProcessStartInfo("https://www.bangor.ac.uk/");
+            Process.Start(sInfo);
+        }
+
     }
 
 }

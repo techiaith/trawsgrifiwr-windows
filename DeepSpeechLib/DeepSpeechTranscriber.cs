@@ -38,6 +38,7 @@ namespace DeepSpeechLib
         private WaveInEvent _waveSource;
         private static WaveFileWriter _waveFile;
 
+        public String _currentTranscription;
 
         //
         public DeepSpeechTranscriber(String model=DEFAULT_MODEL, 
@@ -58,27 +59,32 @@ namespace DeepSpeechLib
             _waveSource.DataAvailable += new EventHandler<WaveInEventArgs>(onWaveSource_DataAvailable);
         }
 
+
         public void StartRecording()
         {
             _waveFile = new WaveFileWriter(tmpWavFilePath, _waveSource.WaveFormat);
-            _waveSource.StartRecording();
+            _waveSource.StartRecording();            
         }
+
 
         public void AddRecording(String audioFilePath)
         {
             File.Copy(audioFilePath, tmpWavFilePath);
         }
 
+
         public void StopRecording()
         {
             _waveSource.StopRecording();
             _waveFile.Dispose();
+
+            this._currentTranscription = _sttClient.FinishStream();
         }
 
         public Tuple<string, double?, int?, string> Transcribe()
         {            
             Tuple<string, double?, int?, string> result;
-
+            
             var waveBuffer = new WaveBuffer(File.ReadAllBytes(tmpWavFilePath));
             using (var waveInfo = new WaveFileReader(tmpWavFilePath))
             {
@@ -101,6 +107,7 @@ namespace DeepSpeechLib
                 _waveFile.Write(e.Buffer, 0, e.BytesRecorded);
                 _waveFile.Flush();
             }
+
         }
 
     }
