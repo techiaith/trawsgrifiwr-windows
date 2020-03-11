@@ -37,9 +37,7 @@ namespace DeepSpeechLib
         private IDeepSpeech _sttClient = new DeepSpeech();
         private WaveInEvent _waveSource;
         private static WaveFileWriter _waveFile;
-
-        public String _currentTranscription;
-
+        
         //
         public DeepSpeechTranscriber(String model=DEFAULT_MODEL, 
                                      String alphabet=DEFAULT_ALPHABET, 
@@ -76,10 +74,9 @@ namespace DeepSpeechLib
         public void StopRecording()
         {
             _waveSource.StopRecording();
-            _waveFile.Dispose();
-
-            this._currentTranscription = _sttClient.FinishStream();
+            _waveFile.Dispose();            
         }
+
 
         public Tuple<string, double?, int?, string> Transcribe()
         {            
@@ -111,4 +108,5 @@ namespace DeepSpeechLib
         }
 
     }
+
 }
