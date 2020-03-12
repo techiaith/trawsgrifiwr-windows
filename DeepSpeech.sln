@@ -2,11 +2,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.136
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepSpeechConsole", "DeepSpeechConsole\DeepSpeechConsole.csproj", "{312965E5-C4F6-4D95-BA64-79906B8BC7AC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TranscriberConsole", "DeepSpeechConsole\TranscriberConsole.csproj", "{312965E5-C4F6-4D95-BA64-79906B8BC7AC}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "deepspeech-windows-setup", "deepspeech-windows-setup\deepspeech-windows-setup.vdproj", "{B352C283-E834-44FC-9121-D37121F5DA49}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TranscriberAppInstaller", "deepspeech-windows-setup\deepspeech-windows-setup.vdproj", "{B352C283-E834-44FC-9121-D37121F5DA49}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepSpeechTranscriberApp", "DeepSpeechTranscriberApp\DeepSpeechTranscriberApp.csproj", "{259969EE-E91E-4E21-9F9A-319543BBCC12}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TranscriberApp", "DeepSpeechTranscriberApp\TranscriberApp.csproj", "{259969EE-E91E-4E21-9F9A-319543BBCC12}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepSpeechLib", "DeepSpeechLib\DeepSpeechLib.csproj", "{6C065998-6CD2-4816-816E-95A64B0E58CA}"
 EndProject
