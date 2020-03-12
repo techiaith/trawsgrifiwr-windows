@@ -9,7 +9,7 @@ namespace DeepSpeechTranscriberApp
 {
     public partial class AppUpdate : Form
     {
-        private static String UPDATE_URL = @"http://techiaith.cymru/trawsgrifiwr-windows";
+       
         public AppUpdate()
         {
             InitializeComponent();
@@ -22,7 +22,7 @@ namespace DeepSpeechTranscriberApp
             if (!makeCheck())
                 return result;
 
-            var webRequest = WebRequest.Create(UPDATE_URL + "/version.txt");
+            var webRequest = WebRequest.Create(Path.Combine(DeepSpeechTranscriberApp.Program.TRANSCRIBER_APP_URL_BASE, "version.txt"));
 
             try
             {
@@ -67,7 +67,7 @@ namespace DeepSpeechTranscriberApp
 
         private void linkLabelWebsite_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            System.Diagnostics.Process.Start(UPDATE_URL);
+            System.Diagnostics.Process.Start(DeepSpeechTranscriberApp.Program.TRANSCRIBER_APP_URL_BASE);
         }
 
     }

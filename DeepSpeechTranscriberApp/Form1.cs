@@ -89,29 +89,30 @@ namespace DeepSpeechTranscriberApp
             pictureBoxSpinner.Visible = false;
         }
 
+
         private void buttonAbout_Click(object sender, EventArgs e)
         {
-            DeepSpeechTranscriptionApp.About aboutDialog = new DeepSpeechTranscriptionApp.About();
+            DeepSpeechTranscriptionApp.About aboutDialog = new DeepSpeechTranscriptionApp.About();            
+            aboutDialog.setUrl("Diolchiadau", "about.html");
             aboutDialog.ShowDialog();
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+       
+        private void buttonCommonVoice_Click(object sender, EventArgs e)
         {
-
+            DeepSpeechTranscriptionApp.About aboutDialog = new DeepSpeechTranscriptionApp.About();
+            aboutDialog.setUrl("Mozilla CommonVoice", "commonvoice.html");
+            aboutDialog.ShowDialog();            
         }
 
-        private void buttonGitHub_Click(object sender, EventArgs e)
+
+        private void buttonHowToUse_Click(object sender, EventArgs e)
         {
-            ProcessStartInfo sInfo = new ProcessStartInfo("http://voice.mozilla.org/cy");
-            Process.Start(sInfo);
+            DeepSpeechTranscriptionApp.About aboutDialog = new DeepSpeechTranscriptionApp.About();
+            aboutDialog.setUrl("Sut i Ddefnyddio", "sutiddefnyddio.html");
+            aboutDialog.ShowDialog();
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            ProcessStartInfo sInfo = new ProcessStartInfo("https://www.bangor.ac.uk/");
-            Process.Start(sInfo);
-        }
-     
     }
 
 }

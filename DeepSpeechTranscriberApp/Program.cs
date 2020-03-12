@@ -8,6 +8,10 @@ namespace DeepSpeechTranscriberApp
 {
     static class Program
     {
+        //
+        public static readonly String TRANSCRIBER_APP_URL_BASE = "http://techiaith.cymru/trawsgrifiwr-windows";
+
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
