@@ -1,10 +1,10 @@
 .vs/*
 DeepSpeechLib/bin/*
 DeepSpeechLib/obj/*
-DeepSpeechConsole/bin/*
-DeepSpeechConsole/obj/*
-DeepSpeechTranscriberApp/bin/*
-DeepSpeechTranscriberApp/obj/*
+TranscriberConsole/bin/*
+TranscriberConsole/obj/*
+TranscriberApp/bin/*
+TranscriberApp/obj/*
 packages/*
 nupkg/*
 models/

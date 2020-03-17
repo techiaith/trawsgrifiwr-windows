@@ -154,6 +154,12 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
+        "OwnerKey" = "8:_6FDAE69387404F929C249A4AB690172B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_C8F5A8482839EF2848C9B40058BFCBBF"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -167,12 +173,6 @@
         {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_527579C555139846AFB8B071F8395B6C"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_6FDAE69387404F929C249A4AB690172B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -207,7 +207,7 @@
         "DisplayName" = "8:Debug"
         "IsDebugOnly" = "11:TRUE"
         "IsReleaseOnly" = "11:FALSE"
-        "OutputFilename" = "8:Debug\\deepspeech-windows-setup.msi"
+        "OutputFilename" = "8:Debug\\trawsgrifiwr-windows-1.0.0-setup.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -429,7 +429,7 @@
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_84A1D4AB2BC243DF939E4E3E86E8ACF4"
             {
-            "SourcePath" = "8:..\\DeepSpeechConsole\\Double-J-Design-Ravenna-3d-Comments.ico"
+            "SourcePath" = "8:..\\TranscriberConsole\\Double-J-Design-Ravenna-3d-Comments.ico"
             "TargetName" = "8:Double-J-Design-Ravenna-3d-Comments.ico"
             "Tag" = "8:"
             "Folder" = "8:_E673ABA61F434025A4DB82E876CBDB8E"
@@ -679,7 +679,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Trawsgrifiwr"
         "ProductCode" = "8:{FB3C4D0C-E451-42B2-ADB0-5CE53D5CE765}"
-        "PackageCode" = "8:{34BCE06E-5416-4C56-9A90-B3DF7C0E0666}"
+        "PackageCode" = "8:{049771B6-FE54-43C8-A768-5690F74CA0E2}"
         "UpgradeCode" = "8:{887C75E3-B151-4AAD-BB54-3F9C6307C69E}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1228,7 +1228,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_27BAABD2D6AD48B597F71E041396BB6B"
             {
-            "SourcePath" = "8:"
+            "SourcePath" = "8:..\\DeepSpeechLib\\obj\\Debug\\DeepSpeechLib.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E673ABA61F434025A4DB82E876CBDB8E"
@@ -1256,7 +1256,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_6FDAE69387404F929C249A4AB690172B"
             {
-            "SourcePath" = "8:..\\DeepSpeechTranscriberApp\\obj\\Release\\DeepSpeechTranscriptionApp.exe"
+            "SourcePath" = "8:..\\TranscriberApp\\obj\\Debug\\DeepSpeechTranscriptionApp.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E673ABA61F434025A4DB82E876CBDB8E"
@@ -1284,7 +1284,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_9258B04AF1154E58827621CD686225CD"
             {
-            "SourcePath" = "8:..\\DeepSpeechConsole\\obj\\x64\\Release\\DeepSpeechConsole.exe"
+            "SourcePath" = "8:..\\TranscriberConsole\\obj\\x64\\Debug\\DeepSpeechConsole.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E673ABA61F434025A4DB82E876CBDB8E"
