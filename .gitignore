@@ -8,3 +8,5 @@ TranscriberApp/obj/*
 packages/*
 nupkg/*
 models/
+*.pfx
+CodeSign.bat

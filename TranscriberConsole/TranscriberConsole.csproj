@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{312965E5-C4F6-4D95-BA64-79906B8BC7AC}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>DeepSpeechConsole</RootNamespace>
-    <AssemblyName>DeepSpeechConsole</AssemblyName>
+    <RootNamespace>TranscriberConsole</RootNamespace>
+    <AssemblyName>TranscriberConsole</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="CodeSign.bat" />
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -78,4 +79,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\DeepSpeech.0.5.1\build\DeepSpeech.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\DeepSpeech.0.5.1\build\DeepSpeech.targets'))" />
   </Target>
+  <PropertyGroup>
+    <PostBuildEvent>"$(ProjectDir)CodeSign.bat"</PostBuildEvent>
+  </PropertyGroup>
 </Project>

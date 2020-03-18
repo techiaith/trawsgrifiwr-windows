@@ -142,7 +142,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox2.Image = global::DeepSpeechTranscriptionApp.Properties.Resources.log_pb_tryloyw;
+            this.pictureBox2.Image = global::TranscriptionApp.Properties.Resources.log_pb_tryloyw;
             this.pictureBox2.Location = new System.Drawing.Point(874, 28);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(155, 77);
@@ -153,7 +153,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::DeepSpeechTranscriptionApp.Properties.Resources.WelshGovtlogo;
+            this.pictureBox1.Image = global::TranscriptionApp.Properties.Resources.WelshGovtlogo;
             this.pictureBox1.Location = new System.Drawing.Point(612, 28);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(261, 77);
@@ -237,7 +237,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBoxSpinner.BackColor = System.Drawing.Color.White;
             this.pictureBoxSpinner.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.pictureBoxSpinner.Image = global::DeepSpeechTranscriptionApp.Properties.Resources.loading_bar_animated_gif_transparent_background_6;
+            this.pictureBoxSpinner.Image = global::TranscriptionApp.Properties.Resources.loading_bar_animated_gif_transparent_background_6;
             this.pictureBoxSpinner.Location = new System.Drawing.Point(363, 209);
             this.pictureBoxSpinner.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxSpinner.Name = "pictureBoxSpinner";
