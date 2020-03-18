@@ -5,7 +5,7 @@ trawsgrifio popeth mae'r defnyddiwr yn llefaru i destun ar y sgrin.
 
 Defnyddir y data Cymraeg o broject Mozilla CommonVoice [2].
 
-Defnyddir hefyd data testunau wedi eu crafu o'r we Gymraeg ac sydd wedi'i becynnu
+Defnyddir hefyd ddata testunau wedi eu crafu o'r we Gymraeg ac sydd wedi'i becynnu
 yng nghorpws OSCAR [3]. 
 
 Ariannwyd y trawsgrifiwr fel rhan o broject datblygu apiau cynorthwyydd personol 
@@ -24,4 +24,4 @@ https://voice.mozilla.org/cy
 
 [3] OSCAR -Pedro Javier Ortiz Suárez, Benoît Sagot, Laurent Romary. Asynchronous Pipeline for Processing Huge Corpora on Medium to Low Resource Infrastructures. 7th Workshop on the Challenges in the Management of Large Corpora (CMLC-7), Jul 2019, Cardiff, United Kingdom. https://hal.inria.fr/hal-02148693
 
-[4] cynorthwyydd personol digidol Cymraeg cod agored Macsen - http://techiaith.cymru
+[4] Cynorthwyydd personol digidol Cymraeg cod agored Macsen - http://techiaith.cymru
