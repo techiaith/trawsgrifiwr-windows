@@ -5,6 +5,8 @@ TranscriberConsole/bin/*
 TranscriberConsole/obj/*
 TranscriberApp/bin/*
 TranscriberApp/obj/*
+TranscriberAppInstaller/Debug/*
+TranscriberAppInstaller/Release/*
 packages/*
 nupkg/*
 models/
