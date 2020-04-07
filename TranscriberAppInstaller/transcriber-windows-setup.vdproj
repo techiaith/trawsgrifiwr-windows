@@ -22,7 +22,7 @@
         "Entry"
         {
         "MsmKey" = "8:_167C5C0F0432ACAA514F93814EB293DF"
-        "OwnerKey" = "8:_453EC17C40FD974F6FA0FCA64D94F0DD"
+        "OwnerKey" = "8:_DE574E22FB7E50ECB8DCC18DF7C2CD86"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -45,25 +45,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_453EC17C40FD974F6FA0FCA64D94F0DD"
+        "MsmKey" = "8:_3FF7AFB7FDC081BE61F71A2ECAE221EC"
         "OwnerKey" = "8:_6FDAE69387404F929C249A4AB690172B"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_453EC17C40FD974F6FA0FCA64D94F0DD"
-        "OwnerKey" = "8:_9258B04AF1154E58827621CD686225CD"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_527579C555139846AFB8B071F8395B6C"
-        "OwnerKey" = "8:_6FDAE69387404F929C249A4AB690172B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_527579C555139846AFB8B071F8395B6C"
+        "MsmKey" = "8:_3FF7AFB7FDC081BE61F71A2ECAE221EC"
         "OwnerKey" = "8:_9258B04AF1154E58827621CD686225CD"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -112,25 +100,25 @@
         "Entry"
         {
         "MsmKey" = "8:_B3A43FF787774A8F0942439F10D6029D"
-        "OwnerKey" = "8:_453EC17C40FD974F6FA0FCA64D94F0DD"
+        "OwnerKey" = "8:_DE574E22FB7E50ECB8DCC18DF7C2CD86"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BFCCC6199F2CD0AD28F972548ABDE26F"
+        "OwnerKey" = "8:_6FDAE69387404F929C249A4AB690172B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_BFCCC6199F2CD0AD28F972548ABDE26F"
+        "OwnerKey" = "8:_9258B04AF1154E58827621CD686225CD"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_C6BA0855B9904F3BB6CD709F328CE0A4"
         "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C8F5A8482839EF2848C9B40058BFCBBF"
-        "OwnerKey" = "8:_6FDAE69387404F929C249A4AB690172B"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C8F5A8482839EF2848C9B40058BFCBBF"
-        "OwnerKey" = "8:_9258B04AF1154E58827621CD686225CD"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -147,6 +135,18 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_DE574E22FB7E50ECB8DCC18DF7C2CD86"
+        "OwnerKey" = "8:_6FDAE69387404F929C249A4AB690172B"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DE574E22FB7E50ECB8DCC18DF7C2CD86"
+        "OwnerKey" = "8:_9258B04AF1154E58827621CD686225CD"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_UNDEFINED"
         "OwnerKey" = "8:_9258B04AF1154E58827621CD686225CD"
         "MsmSig" = "8:_UNDEFINED"
@@ -160,19 +160,19 @@
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_C8F5A8482839EF2848C9B40058BFCBBF"
+        "OwnerKey" = "8:_3FF7AFB7FDC081BE61F71A2ECAE221EC"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_453EC17C40FD974F6FA0FCA64D94F0DD"
+        "OwnerKey" = "8:_DE574E22FB7E50ECB8DCC18DF7C2CD86"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
         "MsmKey" = "8:_UNDEFINED"
-        "OwnerKey" = "8:_527579C555139846AFB8B071F8395B6C"
+        "OwnerKey" = "8:_BFCCC6199F2CD0AD28F972548ABDE26F"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -239,7 +239,7 @@
         "DisplayName" = "8:Release"
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
-        "OutputFilename" = "8:Release\\trawsgrifiwr-windows-1.0.0-setup.msi"
+        "OutputFilename" = "8:Release\\trawsgrifiwr-windows-1.0.1-setup.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -262,6 +262,11 @@
                     {
                     "Name" = "8:Microsoft .NET Framework 4.6.1 (x86 and x64)"
                     "ProductCode" = "8:.NETFramework,Version=v4.6.1"
+                    }
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.Visual.C++.14.0.x64"
+                    {
+                    "Name" = "8:Visual C++ \"14\" Runtime Libraries (x64)"
+                    "ProductCode" = "8:Microsoft.Visual.C++.14.0.x64"
                     }
                 }
             }
@@ -365,51 +370,20 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_453EC17C40FD974F6FA0FCA64D94F0DD"
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_3FF7AFB7FDC081BE61F71A2ECAE221EC"
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:DeepSpeechLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64"
+            "AssemblyAsmDisplayName" = "8:NAudio, Version=1.10.0.0, Culture=neutral, processorArchitecture=MSIL"
                 "ScatterAssemblies"
                 {
-                    "_453EC17C40FD974F6FA0FCA64D94F0DD"
+                    "_3FF7AFB7FDC081BE61F71A2ECAE221EC"
                     {
-                    "Name" = "8:DeepSpeechLib.dll"
+                    "Name" = "8:NAudio.dll"
                     "Attributes" = "3:512"
                     }
                 }
-            "SourcePath" = "8:DeepSpeechLib.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_E673ABA61F434025A4DB82E876CBDB8E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_527579C555139846AFB8B071F8395B6C"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:DeepSpeechClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64"
-                "ScatterAssemblies"
-                {
-                    "_527579C555139846AFB8B071F8395B6C"
-                    {
-                    "Name" = "8:DeepSpeechClient.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:DeepSpeechClient.dll"
+            "SourcePath" = "8:NAudio.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E673ABA61F434025A4DB82E876CBDB8E"
@@ -509,6 +483,37 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_BFCCC6199F2CD0AD28F972548ABDE26F"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:DeepSpeechClient, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64"
+                "ScatterAssemblies"
+                {
+                    "_BFCCC6199F2CD0AD28F972548ABDE26F"
+                    {
+                    "Name" = "8:DeepSpeechClient.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:DeepSpeechClient.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_E673ABA61F434025A4DB82E876CBDB8E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C6BA0855B9904F3BB6CD709F328CE0A4"
             {
             "SourcePath" = "8:..\\DeepSpeechLib\\models\\arddweud\\trie"
@@ -527,37 +532,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C8F5A8482839EF2848C9B40058BFCBBF"
-            {
-            "AssemblyRegister" = "3:1"
-            "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:NAudio, Version=1.10.0.0, Culture=neutral, processorArchitecture=MSIL"
-                "ScatterAssemblies"
-                {
-                    "_C8F5A8482839EF2848C9B40058BFCBBF"
-                    {
-                    "Name" = "8:NAudio.dll"
-                    "Attributes" = "3:512"
-                    }
-                }
-            "SourcePath" = "8:NAudio.dll"
-            "TargetName" = "8:"
-            "Tag" = "8:"
-            "Folder" = "8:_E673ABA61F434025A4DB82E876CBDB8E"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D93919BB66A84C4BBAA91F96C01A02AB"
@@ -598,6 +572,37 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_DE574E22FB7E50ECB8DCC18DF7C2CD86"
+            {
+            "AssemblyRegister" = "3:1"
+            "AssemblyIsInGAC" = "11:FALSE"
+            "AssemblyAsmDisplayName" = "8:DeepSpeechLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=AMD64"
+                "ScatterAssemblies"
+                {
+                    "_DE574E22FB7E50ECB8DCC18DF7C2CD86"
+                    {
+                    "Name" = "8:DeepSpeechLib.dll"
+                    "Attributes" = "3:512"
+                    }
+                }
+            "SourcePath" = "8:DeepSpeechLib.dll"
+            "TargetName" = "8:"
+            "Tag" = "8:"
+            "Folder" = "8:_E673ABA61F434025A4DB82E876CBDB8E"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
         }
@@ -679,7 +684,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Trawsgrifiwr"
         "ProductCode" = "8:{FB3C4D0C-E451-42B2-ADB0-5CE53D5CE765}"
-        "PackageCode" = "8:{049771B6-FE54-43C8-A768-5690F74CA0E2}"
+        "PackageCode" = "8:{1A3B3997-8C3A-4C39-AC59-646D3EF2F41C}"
         "UpgradeCode" = "8:{887C75E3-B151-4AAD-BB54-3F9C6307C69E}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -1228,7 +1233,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_27BAABD2D6AD48B597F71E041396BB6B"
             {
-            "SourcePath" = "8:..\\DeepSpeechLib\\obj\\Debug\\DeepSpeechLib.dll"
+            "SourcePath" = "8:..\\DeepSpeechLib\\obj\\Release\\DeepSpeechLib.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E673ABA61F434025A4DB82E876CBDB8E"
@@ -1256,7 +1261,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_6FDAE69387404F929C249A4AB690172B"
             {
-            "SourcePath" = "8:..\\TranscriberApp\\obj\\Debug\\DeepSpeechTranscriptionApp.exe"
+            "SourcePath" = "8:..\\TranscriberApp\\obj\\Release\\TranscriptionApp.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E673ABA61F434025A4DB82E876CBDB8E"
@@ -1284,7 +1289,7 @@
             }
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_9258B04AF1154E58827621CD686225CD"
             {
-            "SourcePath" = "8:..\\TranscriberConsole\\obj\\x64\\Debug\\DeepSpeechConsole.exe"
+            "SourcePath" = "8:..\\TranscriberConsole\\obj\\x64\\Release\\TranscriberConsole.exe"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_E673ABA61F434025A4DB82E876CBDB8E"

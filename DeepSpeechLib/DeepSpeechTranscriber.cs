@@ -34,7 +34,7 @@ namespace DeepSpeechLib
         public String language_model { get; private set; }
         public String trie { get; private set; }
 
-        private IDeepSpeech _sttClient = new DeepSpeech();
+        private IDeepSpeech _sttClient;
         private WaveInEvent _waveSource;
         private static WaveFileWriter _waveFile;
         
@@ -48,10 +48,21 @@ namespace DeepSpeechLib
             this.alphabet = String.IsNullOrEmpty(alphabet) ? DEFAULT_ALPHABET : alphabet;
             this.language_model = String.IsNullOrEmpty(language_model) ? DEFAULT_LANGUAGE_MODEL : language_model;
             this.trie = String.IsNullOrEmpty(trie) ? DEFAULT_TRIE : trie;
-            
-            _sttClient.CreateModel(this.model, N_CEP, N_CONTEXT, this.alphabet, BEAM_WIDTH);
-            _sttClient.EnableDecoderWithLM(this.alphabet, this.language_model, this.trie, LM_ALPHA, LM_BETA);
 
+            try
+            {
+                _sttClient = new DeepSpeechClient.DeepSpeech();
+
+                _sttClient.CreateModel(this.model, N_CEP, N_CONTEXT, this.alphabet, BEAM_WIDTH);
+                _sttClient.EnableDecoderWithLM(this.alphabet, this.language_model, this.trie, LM_ALPHA, LM_BETA);
+            }
+            catch (Exception exc)
+            {
+                Console.Out.WriteLine(exc.Message);
+                Console.Out.WriteLine(exc.StackTrace);
+                throw new Exception("Methwyd creu'r peiriant DeepSpeech");
+            }
+            
             _waveSource = new WaveInEvent();
             _waveSource.WaveFormat = new WaveFormat(16000, 1);
             _waveSource.DataAvailable += new EventHandler<WaveInEventArgs>(onWaveSource_DataAvailable);

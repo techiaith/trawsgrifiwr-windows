@@ -1,15 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using DeepSpeechLib;
@@ -18,11 +8,21 @@ namespace DeepSpeechTranscriberApp
 {
     public partial class Form1 : Form
     {
-        DeepSpeechTranscriber _transcriber = new DeepSpeechTranscriber();
+        DeepSpeechTranscriber _transcriber;
 
         public Form1()
         {
             InitializeComponent();
+
+            try
+            {
+                _transcriber = new DeepSpeechTranscriber();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show("Methwyd cychwyn DeepSpeech ar gyfer trawsgrifio.");
+                Application.Exit();
+            }
 
             AppUpdate appUpdate = new AppUpdate();
             if (appUpdate.IsAvailableUpdate())

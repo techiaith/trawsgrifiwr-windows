@@ -34,10 +34,22 @@ namespace CSharpExamples
             audio = GetArgument(args, "--audio");
             extended = !string.IsNullOrWhiteSpace(GetArgument(args, "--extended"));
 
-            DeepSpeechTranscriber _transcriber = new DeepSpeechTranscriber(model: model,
-                                                                           alphabet: alphabet,
-                                                                           language_model: lm,              
-                                                                           trie: trie);
+            DeepSpeechTranscriber _transcriber;
+
+            try
+            {
+                _transcriber = new DeepSpeechTranscriber(model: model,
+                                                         alphabet: alphabet,
+                                                         language_model: lm,
+                                                         trie: trie);
+            }
+            catch (Exception exc)
+            {
+                Console.Out.Write("Pwyswch 'Return' i gau'r rhaglen.");
+                Console.In.ReadLine();
+                return;
+            }
+            
 
             Tuple<string, double?, int?, string> sttResult;
 
