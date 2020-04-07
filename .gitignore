@@ -12,3 +12,5 @@ nupkg/*
 models/
 *.pfx
 CodeSign.bat
+InnoSetup/Output/*
+InnoSetup/Redist/*
