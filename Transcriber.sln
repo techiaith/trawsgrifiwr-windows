@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TranscriberApp", "Transcrib
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeepSpeechLib", "DeepSpeechLib\DeepSpeechLib.csproj", "{6C065998-6CD2-4816-816E-95A64B0E58CA}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "TranscriberAppInstall", "TranscriberAppInstall\TranscriberAppInstall.vdproj", "{3C9869DA-F2EB-4DB1-A995-ACD301307D16}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -38,6 +40,10 @@ Global
 		{6C065998-6CD2-4816-816E-95A64B0E58CA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6C065998-6CD2-4816-816E-95A64B0E58CA}.Release|x64.ActiveCfg = Release|Any CPU
 		{6C065998-6CD2-4816-816E-95A64B0E58CA}.Release|x64.Build.0 = Release|Any CPU
+		{3C9869DA-F2EB-4DB1-A995-ACD301307D16}.Debug|Any CPU.ActiveCfg = Debug
+		{3C9869DA-F2EB-4DB1-A995-ACD301307D16}.Debug|x64.ActiveCfg = Debug
+		{3C9869DA-F2EB-4DB1-A995-ACD301307D16}.Release|Any CPU.ActiveCfg = Release
+		{3C9869DA-F2EB-4DB1-A995-ACD301307D16}.Release|x64.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

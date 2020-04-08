@@ -5,12 +5,10 @@ TranscriberConsole/bin/*
 TranscriberConsole/obj/*
 TranscriberApp/bin/*
 TranscriberApp/obj/*
-TranscriberAppInstaller/Debug/*
-TranscriberAppInstaller/Release/*
+TranscriberAppInstall/Debug/*
+TranscriberAppInstall/Release/*
 packages/*
 nupkg/*
 models/
 *.pfx
 CodeSign.bat
-InnoSetup/Output/*
-InnoSetup/Redist/*
