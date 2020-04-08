@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{259969EE-E91E-4E21-9F9A-319543BBCC12}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>TranscriptionApp</RootNamespace>
-    <AssemblyName>TranscriptionApp</AssemblyName>
+    <RootNamespace>TranscriberApp</RootNamespace>
+    <AssemblyName>TranscriberApp</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
