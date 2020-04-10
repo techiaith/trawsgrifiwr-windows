@@ -45,7 +45,8 @@ namespace CSharpExamples
             }
             catch (Exception exc)
             {
-                Console.Out.Write("Pwyswch 'Return' i gau'r rhaglen.");
+                Console.Out.WriteLine(exc.Message);
+                Console.Out.WriteLine("Pwyswch 'Return' i gau'r rhaglen.");
                 Console.In.ReadLine();
                 return;
             }

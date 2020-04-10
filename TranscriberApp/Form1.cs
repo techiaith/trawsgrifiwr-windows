@@ -14,21 +14,11 @@ namespace DeepSpeechTranscriberApp
         {
             InitializeComponent();
 
-            try
-            {
-                _transcriber = new DeepSpeechTranscriber();
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show("Methwyd cychwyn DeepSpeech ar gyfer trawsgrifio.");
-                Application.Exit();
-            }
-
             AppUpdate appUpdate = new AppUpdate();
             if (appUpdate.IsAvailableUpdate())
                 appUpdate.ShowDialog();
 
-            buttonStopRecord.Enabled = false;           
+            buttonStopRecord.Enabled = false;
             pictureBoxSpinner.Visible = false;
             labelRecordingInProgress.Visible = false;
             pictureBoxSpinner.BringToFront();
@@ -36,6 +26,19 @@ namespace DeepSpeechTranscriberApp
             backgroundWorkerTranscribe.DoWork += new DoWorkEventHandler(Transcribe_DoWork);
             backgroundWorkerTranscribe.RunWorkerCompleted += new RunWorkerCompletedEventHandler(Transcribe_Completed);
 
+            try
+            {                
+                _transcriber = new DeepSpeechTranscriber();
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+
+                buttonRecord.Enabled = false;
+                buttonCopyToClipboard.Enabled = false;
+                buttonStopRecord.Enabled = false;
+            }
+                     
         }
 
       

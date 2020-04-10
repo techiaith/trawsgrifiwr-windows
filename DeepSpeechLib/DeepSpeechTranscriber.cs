@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Management;
 
 using NAudio.Wave;
 
@@ -49,6 +50,8 @@ namespace DeepSpeechLib
             this.language_model = String.IsNullOrEmpty(language_model) ? DEFAULT_LANGUAGE_MODEL : language_model;
             this.trie = String.IsNullOrEmpty(trie) ? DEFAULT_TRIE : trie;
 
+            isAvxSupported();
+
             try
             {
                 _sttClient = new DeepSpeechClient.DeepSpeech();
@@ -60,7 +63,19 @@ namespace DeepSpeechLib
             {
                 Console.Out.WriteLine(exc.Message);
                 Console.Out.WriteLine(exc.StackTrace);
-                throw new Exception("Methwyd creu'r peiriant DeepSpeech");
+
+                Tuple<string, bool> avx = isAvxSupported();
+                if (avx.Item2 == false)
+                {
+                    throw new Exception(
+                        "Methwyd creu'r peiriant DeepSpeech oherwydd ddiffyg yn CPU (" 
+                        + avx.Item1 + ") y cyfrifiadur.\n\n"
+                        + "Mae angen cyfrifiadur sydd a fath diweddar o CPU (fel Intel Core i3/5/7/9) ac sy'n cynorthwyo AVX.");                    
+                } else
+                {
+                    throw new Exception("Methwyd creu'r peiriant DeepSpeech am rheswm anhysbys.");
+                }
+                
             }
             
             _waveSource = new WaveInEvent();
@@ -117,7 +132,41 @@ namespace DeepSpeechLib
             }
 
         }
+        
+        private static Tuple<string, bool> isAvxSupported()
+        {
+            ManagementObjectSearcher mso = new ManagementObjectSearcher("select * from Win32_Processor");
+            String cpu_name = String.Empty;
 
+            foreach (ManagementObject mo in mso.Get())
+            {
+                cpu_name = mo["Name"].ToString();
+                break;              
+            }
+            
+            bool hasAvx = false;
+
+            if (cpu_name.Contains("Celeron"))
+                hasAvx=false;
+            else if ((cpu_name.Contains("Core(TM)") 
+                && 
+                (       cpu_name.Contains("i3") || 
+                        cpu_name.Contains("i5") || 
+                        cpu_name.Contains("i7") ||
+                        cpu_name.Contains("i9"))
+                )
+            )
+            {
+                hasAvx = true;
+            }
+            else
+            {
+                hasAvx = false;
+            }
+
+            return new Tuple<string, bool>(cpu_name, hasAvx);
+            
+        }
     }
 
 }
