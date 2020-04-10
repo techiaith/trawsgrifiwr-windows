@@ -33,10 +33,8 @@ namespace DeepSpeechTranscriberApp
                     String strContent = reader.ReadToEnd();
                     strContent = strContent.Trim();
                     Version latestVersion = new Version(strContent);
-
-                    Assembly assembly = Assembly.GetExecutingAssembly();
-                    FileVersionInfo fileVersionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
-                    Version installedVersion = new Version(fileVersionInfo.ProductVersion);
+                    
+                    Version installedVersion = new Version(getInstalledAppVersion());
 
                     if (installedVersion < latestVersion)
                     {
@@ -51,6 +49,15 @@ namespace DeepSpeechTranscriberApp
 
             return result;
 
+        }
+
+
+        public String getInstalledAppVersion()
+        {
+            Assembly assembly = Assembly.GetExecutingAssembly();
+            FileVersionInfo fileVersionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
+            Version installedVersion = new Version(fileVersionInfo.ProductVersion);
+            return installedVersion.ToString();
         }
 
 

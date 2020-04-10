@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.textBoxTranscriptions = new System.Windows.Forms.TextBox();
             this.buttonRecord = new System.Windows.Forms.Button();
             this.buttonStopRecord = new System.Windows.Forms.Button();
@@ -261,6 +262,7 @@
             this.Controls.Add(this.buttonStopRecord);
             this.Controls.Add(this.buttonRecord);
             this.Controls.Add(this.textBoxTranscriptions);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Trawsgifiwr";

@@ -22,6 +22,7 @@ namespace DeepSpeechTranscriberApp
             pictureBoxSpinner.Visible = false;
             labelRecordingInProgress.Visible = false;
             pictureBoxSpinner.BringToFront();
+            this.Text = this.Text + " - v" + appUpdate.getInstalledAppVersion();
 
             backgroundWorkerTranscribe.DoWork += new DoWorkEventHandler(Transcribe_DoWork);
             backgroundWorkerTranscribe.RunWorkerCompleted += new RunWorkerCompletedEventHandler(Transcribe_Completed);
