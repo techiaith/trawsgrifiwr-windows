@@ -1,6 +1,6 @@
 # Trawsgrifiwr (lleferydd i destun) Cymraeg ar gyfer Windows
 
-[Llwytho i lawr > ](http://techiaith.cymru/trawsgrifiwr-windows/trawsgrifiwr-windows-1.0.1-setup.msi)
+[Llwytho i lawr > ](http://techiaith.cymru/trawsgrifiwr-windows/trawsgrifiwr-windows-1.0.2-setup.msi)
 
 Mae'r ap yma'n defnyddio cydrannau adnabod lleferydd Mozilla DeepSpeech [1] er mwyn 
 trawsgrifio popeth mae'r defnyddiwr yn llefaru i destun ar y sgrin. 
