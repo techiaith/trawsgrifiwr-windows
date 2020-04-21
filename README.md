@@ -1,4 +1,6 @@
-# Trawsgrifiwr (lleferydd i destun) Cymraeg ar gyfer Windows
+<img align="right" width="100" height="100" src="https://raw.githubusercontent.com/techiaith/trawsgrifiwr-windows/master/TranscriberApp/Double-J-Design-Ravenna-3d-Comments.ico">
+
+# Trawsgrifiwr (lleferydd-i-destun) Cymraeg ar gyfer Windows
 
 [Llwytho i lawr > ](http://techiaith.cymru/trawsgrifiwr-windows/trawsgrifiwr-windows-1.0.2-setup.msi)
 
