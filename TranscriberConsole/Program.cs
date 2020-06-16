@@ -21,16 +21,12 @@ namespace CSharpExamples
         static void Main(string[] args)
         {
             string model = null;
-            string alphabet = null;
-            string lm = null;
-            string trie = null;
+            string scorer = null;
             string audio = null;
             bool extended = true;
 
             model = GetArgument(args, "--model");
-            alphabet = GetArgument(args, "--alphabet");
-            lm = GetArgument(args, "--lm");
-            trie = GetArgument(args, "--trie");
+            scorer = GetArgument(args, "--scorer");
             audio = GetArgument(args, "--audio");
             extended = !string.IsNullOrWhiteSpace(GetArgument(args, "--extended"));
 
@@ -39,9 +35,7 @@ namespace CSharpExamples
             try
             {
                 _transcriber = new DeepSpeechTranscriber(model: model,
-                                                         alphabet: alphabet,
-                                                         language_model: lm,
-                                                         trie: trie);
+                                                         kenlm_scorer: scorer);
             }
             catch (Exception exc)
             {
@@ -52,13 +46,14 @@ namespace CSharpExamples
             }
             
 
-            Tuple<string, double?, int?, string> sttResult;
+            List<string> sttResult;
 
             if (!String.IsNullOrEmpty(audio))
             {
                 _transcriber.AddRecording(audio);
                 sttResult = _transcriber.Transcribe();
-                Console.Out.WriteLine(sttResult.Item1);
+                foreach (String r in sttResult)
+                    Console.Out.WriteLine(r);
             }
             else
             {
@@ -77,47 +72,13 @@ namespace CSharpExamples
                     _transcriber.StopRecording();
 
                     sttResult = _transcriber.Transcribe();
-                    Console.Out.WriteLine(sttResult.Item1);
-                
+                    foreach (String r in sttResult)
+                        Console.Out.WriteLine(r);
                 }    
                 
             }
                           
         }
-
-
-
-        //private static void perform_stt(ref IDeepSpeech sttClient, String audioFilePath, bool extended)
-        //{
-        //    Stopwatch stopwatch = new Stopwatch();
-
-        //    var waveBuffer = new WaveBuffer(File.ReadAllBytes(audioFilePath));
-        //    using (var waveInfo = new WaveFileReader(audioFilePath))
-        //    {
-        //        Console.WriteLine("Running inference....");
-
-        //        stopwatch.Start();
-
-        //        string speechResult;
-        //        if (extended)
-        //        {
-        //            Metadata metaResult = sttClient.SpeechToTextWithMetadata(waveBuffer.ShortBuffer, Convert.ToUInt32(waveBuffer.MaxSize / 2), 16000);
-        //            speechResult = MetadataToString(metaResult);
-        //        }
-        //        else
-        //        {
-        //            speechResult = sttClient.SpeechToText(waveBuffer.ShortBuffer, Convert.ToUInt32(waveBuffer.MaxSize / 2), 16000);
-        //        }
-
-        //        stopwatch.Stop();
-
-        //        Console.WriteLine($"Audio duration: {waveInfo.TotalTime.ToString()}");
-        //        Console.WriteLine($"Inference took: {stopwatch.Elapsed.ToString()}");
-        //        Console.WriteLine((extended ? $"Extended result: " : "Recognized text: ") + speechResult);
-        //        Console.WriteLine("\n\n");
-        //    }
-        //    waveBuffer.Clear();
-        //}
                
     }
 

@@ -2,13 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Management;
 
 using NAudio.Wave;
 
-using DeepSpeechClient;
 using DeepSpeechClient.Interfaces;
 using DeepSpeechClient.Models;
 
@@ -17,47 +14,33 @@ namespace DeepSpeechLib
 {
     public class DeepSpeechTranscriber
     {
-        const uint N_CEP = 26;
-        const uint N_CONTEXT = 9;
-        const uint BEAM_WIDTH = 500;
-        const float LM_ALPHA = 0.75f;
-        const float LM_BETA = 1.85f;
-
-        const String DEFAULT_MODEL = "models/arddweud/output_graph.pb";
-        const String DEFAULT_ALPHABET = "models/arddweud/alphabet.txt";
-        const String DEFAULT_LANGUAGE_MODEL = "models/arddweud/lm.binary";
-        const String DEFAULT_TRIE = "models/arddweud/trie";
-
+        
+        const String DEFAULT_MODEL = "models/output_graph.pbmm";
+        const String DEFAULT_KENLM_SCORER = "models/arddweud/kenlm.scorer";
+        
         private String tmpWavFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "deepspeech.tmp.wav");
 
         public String model { get; private set; }
-        public String alphabet { get; private set; }
-        public String language_model { get; private set; }
-        public String trie { get; private set; }
+        public String kenlm_scorer { get; private set; }
 
         private IDeepSpeech _sttClient;
         private WaveInEvent _waveSource;
         private static WaveFileWriter _waveFile;
-        
+
+        // lots lifted out of https://deepspeech.readthedocs.io/en/v0.7.3/DotNet-Examples.html
+
         //
         public DeepSpeechTranscriber(String model=DEFAULT_MODEL, 
-                                     String alphabet=DEFAULT_ALPHABET, 
-                                     String language_model=DEFAULT_LANGUAGE_MODEL, 
-                                     String trie=DEFAULT_TRIE)
+                                     String kenlm_scorer= DEFAULT_KENLM_SCORER)
         {
+            
             this.model = String.IsNullOrEmpty(model) ? DEFAULT_MODEL : model;
-            this.alphabet = String.IsNullOrEmpty(alphabet) ? DEFAULT_ALPHABET : alphabet;
-            this.language_model = String.IsNullOrEmpty(language_model) ? DEFAULT_LANGUAGE_MODEL : language_model;
-            this.trie = String.IsNullOrEmpty(trie) ? DEFAULT_TRIE : trie;
-
-            isAvxSupported();
+            this.kenlm_scorer = String.IsNullOrEmpty(kenlm_scorer) ? DEFAULT_KENLM_SCORER : kenlm_scorer;
 
             try
             {
-                _sttClient = new DeepSpeechClient.DeepSpeech();
-
-                _sttClient.CreateModel(this.model, N_CEP, N_CONTEXT, this.alphabet, BEAM_WIDTH);
-                _sttClient.EnableDecoderWithLM(this.alphabet, this.language_model, this.trie, LM_ALPHA, LM_BETA);
+                _sttClient = new DeepSpeechClient.DeepSpeech(this.model);
+                _sttClient.EnableExternalScorer(this.kenlm_scorer);
             }
             catch (Exception exc)
             {
@@ -104,24 +87,36 @@ namespace DeepSpeechLib
         }
 
 
-        public Tuple<string, double?, int?, string> Transcribe()
-        {            
-            Tuple<string, double?, int?, string> result;
-            
+        public List<String> Transcribe()
+        {
+            List<String> result = new List<string>();
+
             var waveBuffer = new WaveBuffer(File.ReadAllBytes(tmpWavFilePath));
             using (var waveInfo = new WaveFileReader(tmpWavFilePath))
             {
                 Metadata metaResult = _sttClient.SpeechToTextWithMetadata(waveBuffer.ShortBuffer, Convert.ToUInt32(waveBuffer.MaxSize / 2), 16000);
-                result = new Tuple<string, double?, int?, string>(
-                    Recaser.Recase(string.Join("", metaResult?.Items?.Select(x => x.Character))),
-                    metaResult?.Probability,
-                    metaResult?.Items.Length,
-                    string.Join(Environment.NewLine, metaResult?.Items?.Select(x => $"Timestep : {x.Timestep} TimeOffset: {x.StartTime} Char: {x.Character}")));
+
+                List<CandidateTranscript> candidateTranscriptions = metaResult.Transcripts.ToList();
+                candidateTranscriptions.OrderByDescending(x => x.Confidence);                
+                foreach (CandidateTranscript ct in candidateTranscriptions)
+                {
+                    result.Add(MetadataToString(ct));
+                }
             }
             waveBuffer.Clear();
             return result;
         }
 
+        private static string MetadataToString(CandidateTranscript transcript)
+        {
+            var nl = Environment.NewLine;
+            string retval =
+             Environment.NewLine + $"Recognized text: {string.Join("", transcript?.Tokens?.Select(x => x.Text))} {nl}"
+             + $"Confidence: {transcript?.Confidence} {nl}"
+             + $"Item count: {transcript?.Tokens?.Length} {nl}"
+             + string.Join(nl, transcript?.Tokens?.Select(x => $"Timestep : {x.Timestep} TimeOffset: {x.StartTime} Char: {x.Text}"));
+            return retval;
+        }
 
         private static void onWaveSource_DataAvailable(object sender, WaveInEventArgs e)
         {
@@ -168,5 +163,4 @@ namespace DeepSpeechLib
             
         }
     }
-
 }
