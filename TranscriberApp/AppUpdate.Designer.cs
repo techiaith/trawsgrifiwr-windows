@@ -51,12 +51,12 @@
             this.linkLabelWebsite.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.linkLabelWebsite.AutoSize = true;
             this.linkLabelWebsite.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.linkLabelWebsite.Location = new System.Drawing.Point(198, 165);
+            this.linkLabelWebsite.Location = new System.Drawing.Point(142, 145);
             this.linkLabelWebsite.Name = "linkLabelWebsite";
-            this.linkLabelWebsite.Size = new System.Drawing.Size(327, 20);
+            this.linkLabelWebsite.Size = new System.Drawing.Size(441, 20);
             this.linkLabelWebsite.TabIndex = 1;
             this.linkLabelWebsite.TabStop = true;
-            this.linkLabelWebsite.Text = "http://techiaith.cymru/trawsgrifiwr-windows";
+            this.linkLabelWebsite.Text = "https://github.com/techiaith/trawsgrifiwr-windows/releases";
             this.linkLabelWebsite.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelWebsite_LinkClicked);
             // 
             // buttonClose

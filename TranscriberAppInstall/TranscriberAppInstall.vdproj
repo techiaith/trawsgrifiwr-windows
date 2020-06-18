@@ -27,13 +27,19 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_4F2A6AC3E74C43ECA14D61A50FDA98AA"
+        "MsmKey" = "8:_41A03842022043148685B5BDF5282F85"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_5D55535980B44DBC9A65799D36CBD6C6"
+        "MsmKey" = "8:_4573071CA2FD48B4A8146FA33DB3C2A1"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_4F2A6AC3E74C43ECA14D61A50FDA98AA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -46,12 +52,6 @@
         "Entry"
         {
         "MsmKey" = "8:_80D42121DA6D444AAED7300AE124C656"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_94B4BD403DD043EB9A8AA53F08445DEF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -75,13 +75,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_C6D2FEFE161F4D9E98C6C529E0E8261C"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C82DDC7A58FF47A5B997FA871CADC7A5"
+        "MsmKey" = "8:_C437A17CD97F46A2BA8AFEA1A1AE4930"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -259,12 +253,12 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4F2A6AC3E74C43ECA14D61A50FDA98AA"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_41A03842022043148685B5BDF5282F85"
             {
-            "SourcePath" = "8:..\\TranscriberApp\\bin\\Release\\libdeepspeech.so"
-            "TargetName" = "8:libdeepspeech.so"
+            "SourcePath" = "8:..\\DeepSpeechLib\\models\\am\\techiaith_bangor_20.06.md"
+            "TargetName" = "8:techiaith_bangor_20.06.md"
             "Tag" = "8:"
-            "Folder" = "8:_D5E39927A2014E9DB53EFFA3F34B67A4"
+            "Folder" = "8:_E456FD9DD1DB45E5A32A24BF7EB8C5F2"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -279,12 +273,32 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_5D55535980B44DBC9A65799D36CBD6C6"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4573071CA2FD48B4A8146FA33DB3C2A1"
             {
-            "SourcePath" = "8:..\\TranscriberApp\\bin\\Release\\models\\arddweud\\lm.binary"
-            "TargetName" = "8:lm.binary"
+            "SourcePath" = "8:..\\DeepSpeechLib\\models\\am\\techiaith_bangor_20.06.pbmm"
+            "TargetName" = "8:techiaith_bangor_20.06.pbmm"
             "Tag" = "8:"
-            "Folder" = "8:_3D58E35A4BEB4C2085E1466EF8ABEC83"
+            "Folder" = "8:_E456FD9DD1DB45E5A32A24BF7EB8C5F2"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4F2A6AC3E74C43ECA14D61A50FDA98AA"
+            {
+            "SourcePath" = "8:..\\TranscriberApp\\bin\\Release\\libdeepspeech.so"
+            "TargetName" = "8:libdeepspeech.so"
+            "Tag" = "8:"
+            "Folder" = "8:_D5E39927A2014E9DB53EFFA3F34B67A4"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -328,26 +342,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_94B4BD403DD043EB9A8AA53F08445DEF"
-            {
-            "SourcePath" = "8:..\\TranscriberApp\\bin\\Release\\models\\arddweud\\alphabet.txt"
-            "TargetName" = "8:alphabet.txt"
-            "Tag" = "8:"
-            "Folder" = "8:_3D58E35A4BEB4C2085E1466EF8ABEC83"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9806E04D9CD44348A9DAC0931A89D89F"
@@ -443,32 +437,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C6D2FEFE161F4D9E98C6C529E0E8261C"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C437A17CD97F46A2BA8AFEA1A1AE4930"
             {
-            "SourcePath" = "8:..\\TranscriberApp\\bin\\Release\\models\\arddweud\\trie"
-            "TargetName" = "8:trie"
+            "SourcePath" = "8:..\\DeepSpeechLib\\models\\lm\\techiaith_bangor_20.06.scorer"
+            "TargetName" = "8:techiaith_bangor_20.06.scorer"
             "Tag" = "8:"
-            "Folder" = "8:_3D58E35A4BEB4C2085E1466EF8ABEC83"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C82DDC7A58FF47A5B997FA871CADC7A5"
-            {
-            "SourcePath" = "8:..\\TranscriberApp\\bin\\Release\\models\\arddweud\\output_graph.pb"
-            "TargetName" = "8:output_graph.pb"
-            "Tag" = "8:"
-            "Folder" = "8:_3D58E35A4BEB4C2085E1466EF8ABEC83"
+            "Folder" = "8:_93FA8B1A228E46D986043088A98AA186"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -570,13 +544,24 @@
                     "Property" = "8:_7540314F2FD140FD807AC56906FE718C"
                         "Folders"
                         {
-                            "{9EF0B969-E518-4E46-987F-47570745A589}:_3D58E35A4BEB4C2085E1466EF8ABEC83"
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_93FA8B1A228E46D986043088A98AA186"
                             {
-                            "Name" = "8:arddweud"
+                            "Name" = "8:lm"
                             "AlwaysCreate" = "11:FALSE"
                             "Condition" = "8:"
                             "Transitive" = "11:FALSE"
-                            "Property" = "8:_100006A593D74EDF8D8959590D5D2E70"
+                            "Property" = "8:_FC54D23382114165B4C3707ED1376C2F"
+                                "Folders"
+                                {
+                                }
+                            }
+                            "{9EF0B969-E518-4E46-987F-47570745A589}:_E456FD9DD1DB45E5A32A24BF7EB8C5F2"
+                            {
+                            "Name" = "8:am"
+                            "AlwaysCreate" = "11:FALSE"
+                            "Condition" = "8:"
+                            "Transitive" = "11:FALSE"
+                            "Property" = "8:_4B349744BE9241F4B082090F537C2C84"
                                 "Folders"
                                 {
                                 }
@@ -612,8 +597,8 @@
         {
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Trawsgrifiwr"
-        "ProductCode" = "8:{6F465FFC-E3BB-4527-9A20-8B7D1C185481}"
-        "PackageCode" = "8:{F64314C8-6797-45B0-A6DF-E53796C75A05}"
+        "ProductCode" = "8:{6F465FFC-E3BB-4527-9A20-8B7D1C185482}"
+        "PackageCode" = "8:{EEED5603-A2C8-48C2-AEC5-0F235EAFD3F1}"
         "UpgradeCode" = "8:{31A1F061-9A5B-4F9B-8EEB-FB7AA2E4D011}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
