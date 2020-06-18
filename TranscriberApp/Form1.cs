@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Forms;
 
@@ -80,8 +81,18 @@ namespace DeepSpeechTranscriberApp
 
         private void Transcribe_DoWork(object sender, DoWorkEventArgs e) 
         {
-            Tuple<string, double?, int?, string> sttResult = _transcriber.Transcribe();            
-            e.Result = sttResult.Item1;
+            List<String> sttResult = _transcriber.Transcribe();
+            if (sttResult.Count > 0)
+            {
+                //Recognized text: ar un roedd amodau meg amarch
+                //Confidence: -72.9908981323242
+                //Item count: 29
+                //Timestep: 37 TimeOffset: 0.74 Char: a
+                //Timestep : 38 TimeOffset: 0.76 Char: r
+                //Timestep : 81 TimeOffset: 1.62 Char:
+                String[] resultLines = sttResult[0].Split(Environment.NewLine.ToCharArray());
+                e.Result = resultLines[0].Replace("Recognized text:","").Trim();
+            }                
         }
 
 

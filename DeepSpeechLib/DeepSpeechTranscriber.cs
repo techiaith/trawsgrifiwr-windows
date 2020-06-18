@@ -15,8 +15,8 @@ namespace DeepSpeechLib
     public class DeepSpeechTranscriber
     {
         
-        const String DEFAULT_MODEL = "models/output_graph.pbmm";
-        const String DEFAULT_KENLM_SCORER = "models/arddweud/kenlm.scorer";
+        const String DEFAULT_MODEL = "models/am/techiaith_bangor_20.06.pbmm";
+        const String DEFAULT_KENLM_SCORER = "models/lm/techiaith_bangor_20.06.scorer";
         
         private String tmpWavFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "deepspeech.tmp.wav");
 
@@ -111,10 +111,12 @@ namespace DeepSpeechLib
         {
             var nl = Environment.NewLine;
             string retval =
-             Environment.NewLine + $"Recognized text: {string.Join("", transcript?.Tokens?.Select(x => x.Text))} {nl}"
+             $"Recognized text: {string.Join("", transcript?.Tokens?.Select(x => x.Text))} {nl}"
              + $"Confidence: {transcript?.Confidence} {nl}"
              + $"Item count: {transcript?.Tokens?.Length} {nl}"
-             + string.Join(nl, transcript?.Tokens?.Select(x => $"Timestep : {x.Timestep} TimeOffset: {x.StartTime} Char: {x.Text}"));
+             + string.Join(nl, transcript?.Tokens?.Select(x => $"Timestep : {x.Timestep} TimeOffset: {x.StartTime} Char: {x.Text}"))
+             + Environment.NewLine;
+
             return retval;
         }
 

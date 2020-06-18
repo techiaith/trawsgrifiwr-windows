@@ -61,13 +61,14 @@
     <Compile Include="Recaser.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="models\arddweud\kenlm.scorer">
+    <None Include="models\am\deepspeech-0.7.3-models.pbmm" />
+    <None Include="models\am\techiaith_bangor_20.06.pbmm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="models\output_graph.pbmm">
+    <None Include="models\am\techiaith_bangor_20.06.md">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="models\techiaith_bangor_20.06.md">
+    <None Include="models\lm\techiaith_bangor_20.06.scorer">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="packages.config" />
