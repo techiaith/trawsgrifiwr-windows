@@ -44,6 +44,7 @@
             this.buttonMozillaCommonVoice = new System.Windows.Forms.Button();
             this.buttonAbout = new System.Windows.Forms.Button();
             this.pictureBoxSpinner = new System.Windows.Forms.PictureBox();
+            this.labelCharacterErrorRate = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -64,6 +65,7 @@
             this.textBoxTranscriptions.Size = new System.Drawing.Size(975, 315);
             this.textBoxTranscriptions.TabIndex = 0;
             this.textBoxTranscriptions.TabStop = false;
+            this.textBoxTranscriptions.TextChanged += new System.EventHandler(this.textBoxTranscriptions_TextChanged);
             // 
             // buttonRecord
             // 
@@ -119,7 +121,7 @@
             this.labelRecordingInProgress.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.labelRecordingInProgress.AutoSize = true;
             this.labelRecordingInProgress.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRecordingInProgress.Location = new System.Drawing.Point(287, 535);
+            this.labelRecordingInProgress.Location = new System.Drawing.Point(273, 535);
             this.labelRecordingInProgress.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.labelRecordingInProgress.Name = "labelRecordingInProgress";
             this.labelRecordingInProgress.Size = new System.Drawing.Size(411, 20);
@@ -239,13 +241,21 @@
             this.pictureBoxSpinner.BackColor = System.Drawing.Color.White;
             this.pictureBoxSpinner.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.pictureBoxSpinner.Image = global::TranscriberApp.Properties.Resources.loading_bar_animated_gif_transparent_background_6;
-            this.pictureBoxSpinner.Location = new System.Drawing.Point(363, 209);
+            this.pictureBoxSpinner.Location = new System.Drawing.Point(341, 227);
             this.pictureBoxSpinner.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBoxSpinner.Name = "pictureBoxSpinner";
             this.pictureBoxSpinner.Size = new System.Drawing.Size(289, 248);
             this.pictureBoxSpinner.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxSpinner.TabIndex = 5;
             this.pictureBoxSpinner.TabStop = false;
+            // 
+            // labelCharacterErrorRate
+            // 
+            this.labelCharacterErrorRate.AutoSize = true;
+            this.labelCharacterErrorRate.Location = new System.Drawing.Point(136, 535);
+            this.labelCharacterErrorRate.Name = "labelCharacterErrorRate";
+            this.labelCharacterErrorRate.Size = new System.Drawing.Size(0, 17);
+            this.labelCharacterErrorRate.TabIndex = 9;
             // 
             // Form1
             // 
@@ -254,6 +264,7 @@
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1005, 587);
+            this.Controls.Add(this.labelCharacterErrorRate);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.labelRecordingInProgress);
@@ -294,6 +305,7 @@
         private System.Windows.Forms.Button buttonAbout;
         private System.Windows.Forms.Button buttonMozillaCommonVoice;
         private System.Windows.Forms.Button buttonHowToUse;
+        private System.Windows.Forms.Label labelCharacterErrorRate;
     }
 }
 

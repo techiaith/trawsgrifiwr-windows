@@ -27,18 +27,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_41A03842022043148685B5BDF5282F85"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_4573071CA2FD48B4A8146FA33DB3C2A1"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_4F2A6AC3E74C43ECA14D61A50FDA98AA"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -52,6 +40,18 @@
         "Entry"
         {
         "MsmKey" = "8:_80D42121DA6D444AAED7300AE124C656"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_8D2365A354AF42F386AC57A3AC211A3F"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_935D2608681F454FA128FCAE41E3F286"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -75,12 +75,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_C437A17CD97F46A2BA8AFEA1A1AE4930"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_E21F495AFF074190A1D48295ADBEAFEC"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -88,6 +82,12 @@
         "Entry"
         {
         "MsmKey" = "8:_FCF7481DFE1D4F748ABFD63C58B91734"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_FFDD57D5DE314B6DB148035AD5D47EA2"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -167,7 +167,7 @@
         "DisplayName" = "8:Release"
         "IsDebugOnly" = "11:FALSE"
         "IsReleaseOnly" = "11:TRUE"
-        "OutputFilename" = "8:Release\\trawsgrifiwr-windows-1.0.2-setup.msi"
+        "OutputFilename" = "8:Release\\trawsgrifiwr-windows-1.0.4-setup.msi"
         "PackageFilesAs" = "3:2"
         "PackageFileSize" = "3:-2147483648"
         "CabType" = "3:1"
@@ -253,46 +253,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_41A03842022043148685B5BDF5282F85"
-            {
-            "SourcePath" = "8:..\\DeepSpeechLib\\models\\am\\techiaith_bangor_20.06.md"
-            "TargetName" = "8:techiaith_bangor_20.06.md"
-            "Tag" = "8:"
-            "Folder" = "8:_E456FD9DD1DB45E5A32A24BF7EB8C5F2"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4573071CA2FD48B4A8146FA33DB3C2A1"
-            {
-            "SourcePath" = "8:..\\DeepSpeechLib\\models\\am\\techiaith_bangor_20.06.pbmm"
-            "TargetName" = "8:techiaith_bangor_20.06.pbmm"
-            "Tag" = "8:"
-            "Folder" = "8:_E456FD9DD1DB45E5A32A24BF7EB8C5F2"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_4F2A6AC3E74C43ECA14D61A50FDA98AA"
             {
             "SourcePath" = "8:..\\TranscriberApp\\bin\\Release\\libdeepspeech.so"
@@ -342,6 +302,46 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8D2365A354AF42F386AC57A3AC211A3F"
+            {
+            "SourcePath" = "8:..\\DeepSpeechLib\\models\\am\\techiaith_bangor_20.07.md"
+            "TargetName" = "8:techiaith_bangor_20.07.md"
+            "Tag" = "8:"
+            "Folder" = "8:_E456FD9DD1DB45E5A32A24BF7EB8C5F2"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_935D2608681F454FA128FCAE41E3F286"
+            {
+            "SourcePath" = "8:..\\DeepSpeechLib\\models\\am\\techiaith_bangor_20.07.pbmm"
+            "TargetName" = "8:techiaith_bangor_20.07.pbmm"
+            "Tag" = "8:"
+            "Folder" = "8:_E456FD9DD1DB45E5A32A24BF7EB8C5F2"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9806E04D9CD44348A9DAC0931A89D89F"
@@ -410,7 +410,7 @@
             {
             "AssemblyRegister" = "3:1"
             "AssemblyIsInGAC" = "11:FALSE"
-            "AssemblyAsmDisplayName" = "8:TranscriberApp, Version=1.0.2.0, Culture=neutral, processorArchitecture=AMD64"
+            "AssemblyAsmDisplayName" = "8:TranscriberApp, Version=1.0.3.0, Culture=neutral, processorArchitecture=AMD64"
                 "ScatterAssemblies"
                 {
                     "_A6A22D75CB5F46CBB6C56722F1D94CB6"
@@ -423,26 +423,6 @@
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_D5E39927A2014E9DB53EFFA3F34B67A4"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C437A17CD97F46A2BA8AFEA1A1AE4930"
-            {
-            "SourcePath" = "8:..\\DeepSpeechLib\\models\\lm\\techiaith_bangor_20.06.scorer"
-            "TargetName" = "8:techiaith_bangor_20.06.scorer"
-            "Tag" = "8:"
-            "Folder" = "8:_93FA8B1A228E46D986043088A98AA186"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -494,6 +474,26 @@
             "TargetName" = "8:Double-J-Design-Ravenna-3d-Comments.ico"
             "Tag" = "8:"
             "Folder" = "8:_D5E39927A2014E9DB53EFFA3F34B67A4"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FFDD57D5DE314B6DB148035AD5D47EA2"
+            {
+            "SourcePath" = "8:..\\DeepSpeechLib\\models\\lm\\techiaith_bangor_20.07.scorer"
+            "TargetName" = "8:techiaith_bangor_20.07.scorer"
+            "Tag" = "8:"
+            "Folder" = "8:_93FA8B1A228E46D986043088A98AA186"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -598,7 +598,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Trawsgrifiwr"
         "ProductCode" = "8:{6F465FFC-E3BB-4527-9A20-8B7D1C185482}"
-        "PackageCode" = "8:{EEED5603-A2C8-48C2-AEC5-0F235EAFD3F1}"
+        "PackageCode" = "8:{1BAF9B7E-E429-488D-83A5-5EC53DF9D8F2}"
         "UpgradeCode" = "8:{31A1F061-9A5B-4F9B-8EEB-FB7AA2E4D011}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"

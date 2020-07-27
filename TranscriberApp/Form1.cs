@@ -4,12 +4,14 @@ using System.ComponentModel;
 using System.Windows.Forms;
 
 using DeepSpeechLib;
+using TranscriberApp;
 
 namespace DeepSpeechTranscriberApp
 {
     public partial class Form1 : Form
     {
         DeepSpeechTranscriber _transcriber;
+        private String _recognizedText = String.Empty;
 
         public Form1()
         {
@@ -47,6 +49,8 @@ namespace DeepSpeechTranscriberApp
 
         private void buttonRecord_Click(object sender, EventArgs e)
         {
+            this._recognizedText = String.Empty;
+
             buttonRecord.Enabled = false;
             buttonCopyToClipboard.Enabled = false;
             buttonStopRecord.Enabled = true;
@@ -75,7 +79,7 @@ namespace DeepSpeechTranscriberApp
         private void buttonCopyToClipboard_Click(object sender, EventArgs e)
         {
             Clipboard.Clear();
-            Clipboard.SetText(this.textBoxTranscriptions.Text);
+            Clipboard.SetText(this.textBoxTranscriptions.Text);            
         }
 
 
@@ -91,7 +95,8 @@ namespace DeepSpeechTranscriberApp
                 //Timestep : 38 TimeOffset: 0.76 Char: r
                 //Timestep : 81 TimeOffset: 1.62 Char:
                 String[] resultLines = sttResult[0].Split(Environment.NewLine.ToCharArray());
-                e.Result = resultLines[0].Replace("Recognized text:","").Trim();
+                this._recognizedText = resultLines[0].Replace("Recognized text:", "").Trim();
+                e.Result = this._recognizedText;
             }                
         }
 
@@ -128,6 +133,21 @@ namespace DeepSpeechTranscriberApp
             aboutDialog.ShowDialog();
         }
 
+
+        private void textBoxTranscriptions_TextChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(this._recognizedText))
+            {
+                int d = LevenshteinDistance.Calculate(this._recognizedText, this.textBoxTranscriptions.Text);
+                double cer = ((double)d / (double)this._recognizedText.Length) * 100;
+
+                this.labelCharacterErrorRate.Text = cer.ToString("N6") + "%";
+            } else
+            {
+                this.labelCharacterErrorRate.Text = String.Empty;
+            }
+            
+        }
     }
 
 }
