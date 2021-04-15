@@ -15,8 +15,8 @@ namespace DeepSpeechLib
     public class DeepSpeechTranscriber
     {
         
-        const String DEFAULT_MODEL = "models/am/techiaith_bangor_21.01.pbmm";
-        const String DEFAULT_KENLM_SCORER = "models/lm/techiaith_bangor_21.01.scorer";
+        const String DEFAULT_MODEL = "models/am/techiaith_bangor_21.03.pbmm";
+        const String DEFAULT_KENLM_SCORER = "models/lm/techiaith_bangor_21.03.scorer";
         
         private String tmpWavFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "deepspeech.tmp.wav");
 
