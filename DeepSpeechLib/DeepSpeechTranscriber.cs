@@ -44,26 +44,35 @@ namespace DeepSpeechLib
             }
             catch (Exception exc)
             {
-                Console.Out.WriteLine(exc.Message);
-                Console.Out.WriteLine(exc.StackTrace);
+                String message = String.Empty;
 
                 Tuple<string, bool> avx = isAvxSupported();
                 if (avx.Item2 == false)
                 {
-                    throw new Exception(
-                        "Methwyd creu'r peiriant DeepSpeech oherwydd ddiffyg yn CPU (" 
+                    message = 
+                        "Methwyd creu'r peiriant DeepSpeech oherwydd ddiffyg yn CPU ("
                         + avx.Item1 + ") y cyfrifiadur.\n\n"
-                        + "Mae angen cyfrifiadur sydd a fath diweddar o CPU (fel Intel Core i3/5/7/9) ac sy'n cynorthwyo AVX.");                    
-                } else
-                {
-                    throw new Exception("Methwyd creu'r peiriant DeepSpeech am rheswm anhysbys.");
+                        + "Mae angen cyfrifiadur sydd a fath diweddar o CPU (fel Intel Core i3/5/7/9) ac sy'n cynorthwyo AVX.\n\n"
+                        + "Defnyddiwch raglen fel CoreInfo64 i ddysgu mwy am eich CPU.";
                 }
-                
+                else
+                {
+                    message = "Methwyd creu'r peiriant DeepSpeech am rheswm anhysbys.\n\n" + exc.Message;
+                }
+
+                Console.Out.WriteLine(message);
+                Console.Out.WriteLine();
+                Console.Out.WriteLine(exc.Message);
+                Console.Out.WriteLine(exc.StackTrace);
+
+                throw new Exception(message);
+                                
             }
             
             _waveSource = new WaveInEvent();
             _waveSource.WaveFormat = new WaveFormat(16000, 1);
             _waveSource.DataAvailable += new EventHandler<WaveInEventArgs>(onWaveSource_DataAvailable);
+
         }
 
 
@@ -158,11 +167,29 @@ namespace DeepSpeechLib
             }
             else
             {
-                hasAvx = false;
+                hasAvx = HasAvxSupport();
             }
 
             return new Tuple<string, bool>(cpu_name, hasAvx);
             
         }
+
+
+        private static bool HasAvxSupport()
+        {
+            try
+            {
+                long avxStatus = GetEnabledXStateFeatures();
+                return (avxStatus & 4) != 0;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        [System.Runtime.InteropServices.DllImport("kernel32.dll")]
+        private static extern long GetEnabledXStateFeatures();
     }
+
 }
