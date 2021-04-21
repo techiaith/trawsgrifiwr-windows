@@ -30,27 +30,18 @@ namespace DeepSpeechTranscriberApp
             backgroundWorkerTranscribe.DoWork += new DoWorkEventHandler(Transcribe_DoWork);
             backgroundWorkerTranscribe.RunWorkerCompleted += new RunWorkerCompletedEventHandler(Transcribe_Completed);
 
-            try
-            {                
-                _transcriber = new DeepSpeechTranscriber();
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show(exc.Message);
+            _transcriber = new DeepSpeechTranscriber();
+            String message = _transcriber.CreateSpeechRecognitionEngine();
+            if (!String.IsNullOrEmpty(message))
+                MessageBox.Show(message);
 
-                buttonRecord.Enabled = false;
-                buttonCopyToClipboard.Enabled = false;
-                buttonStopRecord.Enabled = false;
+            if (_transcriber.isUsingOnlineDeepSpeech()) {
+                this.Text = this.Text + " (MODD PEIRIANT AR-LEIN)";
             }
-            finally
-            {
-                if (_transcriber.isUsingOnlineDeepSpeech()) {
-                    this.Text = this.Text + " (MODD PEIRIANT AR-LEIN)";
-                }
-                else {
-                    this.Text = this.Text + " (MODD PEIRIANT LLEOL)";
-                }
+            else {
+                this.Text = this.Text + " (MODD PEIRIANT LLEOL)";
             }
+            
         }
 
 

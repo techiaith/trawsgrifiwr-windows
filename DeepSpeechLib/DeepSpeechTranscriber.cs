@@ -17,10 +17,10 @@ namespace DeepSpeechLib
 {
     public class DeepSpeechTranscriber
     {
-        
+
         const String DEFAULT_MODEL = "models/am/techiaith_bangor_21.03.pbmm";
         const String DEFAULT_KENLM_SCORER = "models/lm/techiaith_bangor_21.03.scorer";
-        
+
         private String tmpWavFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "deepspeech.tmp.wav");
         private static String transcribeOnlineURL = "https://api.techiaith.org/deepspeech/transcribe/speech_to_text/";
 
@@ -35,56 +35,18 @@ namespace DeepSpeechLib
 
         public bool isUsingOnlineDeepSpeech()
         {
-            return useOnlineDeepSpeech;            
+            return useOnlineDeepSpeech;
         }
 
 
         // lots lifted out of https://deepspeech.readthedocs.io/en/v0.7.3/DotNet-Examples.html
 
         //
-        public DeepSpeechTranscriber(String model=DEFAULT_MODEL, 
-                                     String kenlm_scorer= DEFAULT_KENLM_SCORER)
+        public DeepSpeechTranscriber(String model = DEFAULT_MODEL,
+                                     String kenlm_scorer = DEFAULT_KENLM_SCORER)
         {
-            
             this.model = String.IsNullOrEmpty(model) ? DEFAULT_MODEL : model;
             this.kenlm_scorer = String.IsNullOrEmpty(kenlm_scorer) ? DEFAULT_KENLM_SCORER : kenlm_scorer;
-
-            try
-            {
-                _sttClient = new DeepSpeechClient.DeepSpeech(this.model);
-                _sttClient.EnableExternalScorer(this.kenlm_scorer);
-            }
-            catch (Exception exc)
-            {
-                String message = String.Empty;
-
-                Tuple<string, bool> avx = isAvxSupported();
-                if (avx.Item2 == false)
-                {
-                    message =
-                        "Methwyd creu'r peiriant DeepSpeech oherwydd ddiffyg yn CPU ("
-                        + avx.Item1 + ") y cyfrifiadur.\n\n"
-                        + "Mae angen cyfrifiadur sydd a fath diweddar o CPU (fel Intel Core i3/5/7/9) ac sy'n cynorthwyo AVX.\n\n"
-                        + "Defnyddiwch raglen fel CoreInfo64 i ddysgu mwy am eich CPU.\n\n"
-                        + "RHYBUDD: Am defnyddio peiriant DeepSpeech ar-lein fel ddarpariaeth amgen.";
-
-                }
-                else
-                {
-                    message = "Methwyd creu'r peiriant DeepSpeech am rheswm anhysbys.\n\n" + exc.Message;
-                    message += "RHYBUDD: Am defnyddio peiriant DeepSpeech ar-lein fel ddarpariaeth amgen.";
-                }
-
-                Console.Out.WriteLine(message);
-                Console.Out.WriteLine();
-                Console.Out.WriteLine(exc.Message);
-                Console.Out.WriteLine(exc.StackTrace);
-
-                useOnlineDeepSpeech = true;
-
-                throw new Exception(message);
-                                
-            }
             
             _waveSource = new WaveInEvent();
             _waveSource.WaveFormat = new WaveFormat(16000, 1);
@@ -92,6 +54,48 @@ namespace DeepSpeechLib
 
         }
 
+        public String CreateSpeechRecognitionEngine()
+        {
+            String message = String.Empty;
+
+            Tuple<string, bool> avx = isAvxSupported();
+            if (avx.Item2 == false)
+            {
+                message =
+                    "Methwyd creu'r peiriant DeepSpeech oherwydd ddiffyg yn CPU ("
+                    + avx.Item1 + ") y cyfrifiadur.\n\n"
+                    + "Mae angen cyfrifiadur sydd a fath diweddar o CPU (fel Intel Core i3/5/7/9) ac sy'n cynorthwyo AVX.\n\n"
+                    + "Defnyddiwch raglen fel CoreInfo64 i ddysgu mwy am eich CPU.\n\n"
+                    + "RHYBUDD: Am defnyddio peiriant DeepSpeech ar-lein fel ddarpariaeth amgen.";
+
+                useOnlineDeepSpeech = true;
+
+                Console.Out.WriteLine(message);
+                Console.Out.WriteLine();
+            }
+            else
+            {
+                try
+                {
+                    _sttClient = new DeepSpeechClient.DeepSpeech(this.model);
+                    _sttClient.EnableExternalScorer(this.kenlm_scorer);
+                }
+                catch (Exception exc)
+                {
+                    message = "Methwyd creu'r peiriant DeepSpeech am rheswm anhysbys.\n\n" + exc.Message;
+                    message += "RHYBUDD: Am defnyddio peiriant DeepSpeech ar-lein fel ddarpariaeth amgen.";
+
+                    useOnlineDeepSpeech = true;
+
+                    Console.Out.WriteLine(message);
+                    Console.Out.WriteLine();
+
+                }
+            }
+
+            return message;
+
+        }
 
         public void StartRecording()
         {
