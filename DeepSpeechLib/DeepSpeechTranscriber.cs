@@ -9,6 +9,9 @@ using NAudio.Wave;
 using DeepSpeechClient.Interfaces;
 using DeepSpeechClient.Models;
 
+using System.Net.Http;
+using Newtonsoft.Json;
+
 
 namespace DeepSpeechLib
 {
@@ -19,6 +22,9 @@ namespace DeepSpeechLib
         const String DEFAULT_KENLM_SCORER = "models/lm/techiaith_bangor_21.03.scorer";
         
         private String tmpWavFilePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "deepspeech.tmp.wav");
+        private static String transcribeOnlineURL = "https://api.techiaith.org/deepspeech/transcribe/speech_to_text/";
+
+        private Boolean useOnlineDeepSpeech = false;
 
         public String model { get; private set; }
         public String kenlm_scorer { get; private set; }
@@ -26,6 +32,12 @@ namespace DeepSpeechLib
         private IDeepSpeech _sttClient;
         private WaveInEvent _waveSource;
         private static WaveFileWriter _waveFile;
+
+        public bool isUsingOnlineDeepSpeech()
+        {
+            return useOnlineDeepSpeech;            
+        }
+
 
         // lots lifted out of https://deepspeech.readthedocs.io/en/v0.7.3/DotNet-Examples.html
 
@@ -49,21 +61,26 @@ namespace DeepSpeechLib
                 Tuple<string, bool> avx = isAvxSupported();
                 if (avx.Item2 == false)
                 {
-                    message = 
+                    message =
                         "Methwyd creu'r peiriant DeepSpeech oherwydd ddiffyg yn CPU ("
                         + avx.Item1 + ") y cyfrifiadur.\n\n"
                         + "Mae angen cyfrifiadur sydd a fath diweddar o CPU (fel Intel Core i3/5/7/9) ac sy'n cynorthwyo AVX.\n\n"
-                        + "Defnyddiwch raglen fel CoreInfo64 i ddysgu mwy am eich CPU.";
+                        + "Defnyddiwch raglen fel CoreInfo64 i ddysgu mwy am eich CPU.\n\n"
+                        + "RHYBUDD: Am defnyddio peiriant DeepSpeech ar-lein fel ddarpariaeth amgen.";
+
                 }
                 else
                 {
                     message = "Methwyd creu'r peiriant DeepSpeech am rheswm anhysbys.\n\n" + exc.Message;
+                    message += "RHYBUDD: Am defnyddio peiriant DeepSpeech ar-lein fel ddarpariaeth amgen.";
                 }
 
                 Console.Out.WriteLine(message);
                 Console.Out.WriteLine();
                 Console.Out.WriteLine(exc.Message);
                 Console.Out.WriteLine(exc.StackTrace);
+
+                useOnlineDeepSpeech = true;
 
                 throw new Exception(message);
                                 
@@ -95,8 +112,15 @@ namespace DeepSpeechLib
             _waveFile.Dispose();            
         }
 
-
         public List<String> Transcribe()
+        {
+            if (useOnlineDeepSpeech)
+                return Transcribe_Online();
+            else
+                return Transcribe_Offline();
+        }
+
+        private List<String> Transcribe_Offline()
         {
             List<String> result = new List<string>();
 
@@ -115,6 +139,65 @@ namespace DeepSpeechLib
             waveBuffer.Clear();
             return result;
         }
+
+        private List<string> Transcribe_Online()
+        {
+            List<String> result = new List<string>();
+
+            using (var httpClient = new HttpClient())
+            {
+                MultipartFormDataContent form = new MultipartFormDataContent();
+
+                byte[] fileBytes = File.ReadAllBytes(tmpWavFilePath);
+                form.Add(new ByteArrayContent(fileBytes, 0, fileBytes.Length), "soundfile", "speech.wav");
+
+                using (HttpResponseMessage response = httpClient.PostAsync(transcribeOnlineURL, form).Result)
+                {
+                    using (HttpContent content = response.Content)
+                    {
+                        var json = content.ReadAsStringAsync().Result;
+                        dynamic jsonObj = JsonConvert.DeserializeObject(json);
+                        result.Add(jsonObj.text.ToString());
+                    }
+                }
+            }
+
+
+
+
+            //using (var client = new HttpClient())
+            //{
+            //    using (var content = new MultipartFormDataContent("Upload----" + DateTime.Now.ToString(System.Globalization.CultureInfo.InvariantCulture)))
+            //    {
+            //        content.Add(new StreamContent(new FileStream(tmpWavFilePath, FileMode.Open)), "soundfile");
+            //        using (var message = await client.PostAsync(transcribeOnlineURL, content))
+            //        {
+            //            var input = await message.Content.ReadAsStringAsync();
+            //            result.Add(input.ToString());
+            //        }
+            //    }
+            //}
+            
+            //using (var httpClient = new HttpClient())
+            //{
+            //    using (var request = new HttpRequestMessage(new HttpMethod("POST"), transcribeOnlineURL))
+            //    {
+            //        MultipartFormDataContent multipartContent = new MultipartFormDataContent();
+            //        multipartContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("audio/wav");
+            //        multipartContent.Add(new ByteArrayContent(File.ReadAllBytes(tmpWavFilePath)), "soundfile", Path.GetFileName("speech.wav"));
+            //        request.Content = multipartContent;
+
+            //        HttpResponseMessage response = httpClient.SendAsync(request).Result;
+            //        if (response.IsSuccessStatusCode)
+            //        {
+            //            String json = response.Content.ReadAsStringAsync().Result;
+            //            result.Add(json);
+            //        }
+            //    }
+            //}
+            return result;
+        }
+
 
         private static string MetadataToString(CandidateTranscript transcript)
         {

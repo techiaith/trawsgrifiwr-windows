@@ -42,10 +42,17 @@ namespace DeepSpeechTranscriberApp
                 buttonCopyToClipboard.Enabled = false;
                 buttonStopRecord.Enabled = false;
             }
-                     
+            finally
+            {
+                if (_transcriber.isUsingOnlineDeepSpeech()) {
+                    this.Text = this.Text + " (MODD PEIRIANT AR-LEIN)";
+                }
+                else {
+                    this.Text = this.Text + " (MODD PEIRIANT LLEOL)";
+                }
+            }
         }
 
-      
 
         private void buttonRecord_Click(object sender, EventArgs e)
         {
@@ -65,13 +72,13 @@ namespace DeepSpeechTranscriberApp
 
         private void buttonStopRecord_Click(object sender, EventArgs e)
         {                      
-            buttonStopRecord.Enabled = false;            
+            buttonStopRecord.Enabled = false;
             pictureBoxSpinner.Visible = true;
             labelRecordingInProgress.Visible = false;
 
             _transcriber.StopRecording();
 
-            this.backgroundWorkerTranscribe.RunWorkerAsync();   
+            this.backgroundWorkerTranscribe.RunWorkerAsync();
             
         }
 
@@ -79,11 +86,11 @@ namespace DeepSpeechTranscriberApp
         private void buttonCopyToClipboard_Click(object sender, EventArgs e)
         {
             Clipboard.Clear();
-            Clipboard.SetText(this.textBoxTranscriptions.Text);            
+            Clipboard.SetText(this.textBoxTranscriptions.Text);
         }
 
 
-        private void Transcribe_DoWork(object sender, DoWorkEventArgs e) 
+        private async void Transcribe_DoWork(object sender, DoWorkEventArgs e) 
         {
             List<String> sttResult = _transcriber.Transcribe();
             if (sttResult.Count > 0)
@@ -112,7 +119,7 @@ namespace DeepSpeechTranscriberApp
 
         private void buttonAbout_Click(object sender, EventArgs e)
         {
-            DeepSpeechTranscriptionApp.About aboutDialog = new DeepSpeechTranscriptionApp.About();            
+            DeepSpeechTranscriptionApp.About aboutDialog = new DeepSpeechTranscriptionApp.About();
             aboutDialog.setUrl("Diolchiadau", "about.html");
             aboutDialog.ShowDialog();
         }
