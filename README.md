@@ -1,5 +1,9 @@
 <img align="right" width="100" height="100" src="https://raw.githubusercontent.com/techiaith/trawsgrifiwr-windows/master/TranscriberApp/Double-J-Design-Ravenna-3d-Comments.ico">
 
+**Nid yw'r feddalwedd hon yn cael ei ddatblygu na'i chynnal bellach. Mae wedi dyddio a'i ddisodli gan pecyn gwell sydd â chywirdeb adnabod lleferydd Cymraeg gwell a chymorth traws-blatfform (h.y. Windows, Mac a Linux) yn https://github.com/techiaith/trawsgrifiwr-byw** 
+
+**_This software is now obsolete and is not being developed or maintained anymore. It has been superseded by an improved implementation with more accurate Welsh speech recognition and cross-platform support at https://github.com/techiaith/trawsgrifiwr-byw_**
+
 # Trawsgrifiwr (lleferydd-i-destun) Cymraeg ar gyfer Windows
 
 [Llwytho i lawr > ](https://github.com/techiaith/trawsgrifiwr-windows/releases)
